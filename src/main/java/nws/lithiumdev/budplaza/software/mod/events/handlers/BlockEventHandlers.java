@@ -7,6 +7,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
+import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 import nws.lithiumdev.budplaza.software.ui.util.VariableSound;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -21,7 +22,7 @@ public class BlockEventHandlers implements Listener {
             ProjectileSource projectileOwner = event.getEntity().getShooter();
 
             if (projectileOwner instanceof Player p) {
-                p.playSound(p.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
+                PlayerUtil.blipPlayer(p);
                 p.sendActionBar(Component.text(ConfigUtil.getMessage("target_block_summary") + ": ")
                         .color(NamedTextColor.GOLD)
                         .append(

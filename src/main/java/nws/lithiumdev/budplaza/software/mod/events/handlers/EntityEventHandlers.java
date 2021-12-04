@@ -5,6 +5,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.util.MessageUtil;
+import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 import org.bukkit.Sound;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Mob;
@@ -32,7 +33,7 @@ public class EntityEventHandlers implements Listener {
                         .append(Component.text("( KILLED )")
                                 .color(NamedTextColor.RED)));
             } else {
-                p.playSound(p.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
+                PlayerUtil.blipPlayer(p);
                 p.sendActionBar(Component.text("Target: ")
                         .append(Component.text(m.getName()).color(NamedTextColor.GOLD))
                         .append(Component.text("( ")

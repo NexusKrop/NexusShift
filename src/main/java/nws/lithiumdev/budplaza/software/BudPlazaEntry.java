@@ -1,13 +1,10 @@
 package nws.lithiumdev.budplaza.software;
 
 import nws.lithiumdev.budplaza.software.mod.Globals;
-import nws.lithiumdev.budplaza.software.mod.commands.BlipCommand;
-import nws.lithiumdev.budplaza.software.mod.commands.VersionCommand;
+import nws.lithiumdev.budplaza.software.mod.commands.CommandManager;
 import nws.lithiumdev.budplaza.software.mod.events.EventHandlerManager;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.Objects;
 
 public final class BudPlazaEntry extends JavaPlugin {
 
@@ -25,8 +22,7 @@ public final class BudPlazaEntry extends JavaPlugin {
         Globals.server = getServer();
         saveConfig();
 
-        Objects.requireNonNull(this.getCommand("budplaza")).setExecutor(new VersionCommand());
-        Objects.requireNonNull(this.getCommand("blip")).setExecutor(new BlipCommand());
+        CommandManager.registerAllCommands(this);
         EventHandlerManager.registerHandlers(this);
     }
 

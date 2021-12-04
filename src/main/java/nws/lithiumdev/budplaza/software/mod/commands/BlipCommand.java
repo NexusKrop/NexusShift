@@ -4,6 +4,7 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import nws.lithiumdev.budplaza.software.mod.Globals;
+import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 import org.bukkit.Sound;
 import org.bukkit.block.CommandBlock;
 import org.bukkit.command.Command;
@@ -29,7 +30,7 @@ public class BlipCommand implements CommandExecutor {
             return false;
         }
 
-        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
+        PlayerUtil.blipPlayer(player);
 
         if (sender instanceof ConsoleCommandSender) {
             player.sendMessage(Component.text("Console operator wants your attention.").color(NamedTextColor.GRAY).decorate(TextDecoration.ITALIC));
