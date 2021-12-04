@@ -5,6 +5,8 @@ import nws.lithiumdev.budplaza.software.mod.commands.VersionCommand;
 import nws.lithiumdev.budplaza.software.mod.events.EventHandlerManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Objects;
+
 public final class BudPlazaEntry extends JavaPlugin {
 
     @Override
@@ -17,9 +19,10 @@ public final class BudPlazaEntry extends JavaPlugin {
 
         Globals.config.addDefault("noPermissionText", "§4Not sufficient permissions");
         Globals.config.options().copyDefaults(true);
+        Globals.server = getServer();
         saveConfig();
 
-        this.getCommand("budplaza").setExecutor(new VersionCommand());
+        Objects.requireNonNull(this.getCommand("budplaza")).setExecutor(new VersionCommand());
         EventHandlerManager.registerHandlers(this);
     }
 

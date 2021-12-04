@@ -1,6 +1,7 @@
 package nws.lithiumdev.budplaza.software.mod;
 
 import org.apache.logging.log4j.Logger;
+import org.bukkit.Server;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.text.DecimalFormat;
@@ -13,4 +14,5 @@ public final class Globals {
 
     public static FileConfiguration config;
     public static Logger logger;
+    public static Server server;
 }
