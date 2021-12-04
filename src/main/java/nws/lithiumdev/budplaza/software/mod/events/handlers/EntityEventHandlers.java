@@ -4,6 +4,7 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import nws.lithiumdev.budplaza.software.mod.Globals;
+import nws.lithiumdev.budplaza.software.mod.util.MessageUtil;
 import org.bukkit.Sound;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Mob;
@@ -55,6 +56,7 @@ public class EntityEventHandlers implements Listener {
                                 .decorate(TextDecoration.ITALIC))
                         .append(Component.text("( KILLED )")
                                 .color(NamedTextColor.RED)));
+                Globals.server.broadcast(MessageUtil.getDeathComponent(event));
             }
         } catch (Exception ex) {
             Globals.logger.error("Error when handling entity death: ", ex);

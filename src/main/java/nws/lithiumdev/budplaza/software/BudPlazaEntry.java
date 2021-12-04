@@ -1,6 +1,7 @@
 package nws.lithiumdev.budplaza.software;
 
 import nws.lithiumdev.budplaza.software.mod.Globals;
+import nws.lithiumdev.budplaza.software.mod.commands.BlipCommand;
 import nws.lithiumdev.budplaza.software.mod.commands.VersionCommand;
 import nws.lithiumdev.budplaza.software.mod.events.EventHandlerManager;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
@@ -25,6 +26,7 @@ public final class BudPlazaEntry extends JavaPlugin {
         saveConfig();
 
         Objects.requireNonNull(this.getCommand("budplaza")).setExecutor(new VersionCommand());
+        Objects.requireNonNull(this.getCommand("blip")).setExecutor(new BlipCommand());
         EventHandlerManager.registerHandlers(this);
     }
 

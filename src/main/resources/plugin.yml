@@ -10,3 +10,7 @@ commands:
     description: "Shows the version of this plugin."
     usage: "/<command>"
     permission: budplaza.commands.version
+  blip:
+    description: "Blips a player."
+    usage: "/<command> <player>"
+    permission: budplaza.commands.blip
