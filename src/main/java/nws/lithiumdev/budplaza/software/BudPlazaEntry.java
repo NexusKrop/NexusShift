@@ -3,6 +3,7 @@ package nws.lithiumdev.budplaza.software;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.commands.VersionCommand;
 import nws.lithiumdev.budplaza.software.mod.events.EventHandlerManager;
+import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
@@ -18,6 +19,7 @@ public final class BudPlazaEntry extends JavaPlugin {
         Globals.config = this.getConfig();
 
         Globals.config.addDefault("noPermissionText", "§4Not sufficient permissions");
+        ConfigUtil.initConfig();
         Globals.config.options().copyDefaults(true);
         Globals.server = getServer();
         saveConfig();
