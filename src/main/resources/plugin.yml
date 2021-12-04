@@ -1,0 +1,12 @@
+name: BudPlaza-Software
+version: '${version}'
+main: nws.lithiumdev.budplaza.software.BudPlazaEntry
+api-version: 1.18
+prefix: BP-Software
+authors: [ WithLithum ]
+description: BudPlaza Service
+commands:
+  budplaza:
+    description: "Shows the version of this plugin."
+    usage: "/<command>"
+    permission: budplaza.commands.version
