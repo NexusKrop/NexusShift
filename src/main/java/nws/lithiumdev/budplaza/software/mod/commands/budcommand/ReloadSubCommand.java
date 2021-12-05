@@ -10,10 +10,10 @@ public class ReloadSubCommand implements ISubCommand {
 
     @Override
     public void onCommand(CommandSender player, Command command, String[] args) {
-        player.sendMessage(ConfigUtil.getMessage("reloadConfig"));
+        player.sendMessage(ConfigUtil.getComponentMessage("reloadConfig"));
 
         ConfigUtil.reloadConfig();
-        player.sendMessage(ConfigUtil.getMessage("reloadConfigDone"));
+        player.sendMessage(ConfigUtil.getComponentMessage("reloadConfigDone"));
     }
 
     @Override
