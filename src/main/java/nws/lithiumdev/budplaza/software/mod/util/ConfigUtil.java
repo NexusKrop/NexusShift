@@ -2,6 +2,7 @@ package nws.lithiumdev.budplaza.software.mod.util;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
+import nws.lithiumdev.budplaza.software.BudPlazaEntry;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 
 import java.util.HashMap;
@@ -15,6 +16,8 @@ public final class ConfigUtil {
         Globals.config.addDefault("messageGroups.target_block_summary", "Target");
         Globals.config.addDefault("messageGroups.hp", "HP");
         Globals.config.addDefault("messageGroups.welcome", "{\"text\":\"Welcome!\", \"color\":\"green\"}");
+        Globals.config.addDefault("messageGroups.reloadConfigDone", "{\"text\":\"Configuration reloaded.\", \"color\":\"green\"}");
+        Globals.config.addDefault("messageGroups.reloadConfig", "{\"text\":\"Reloading config, please wait...\", \"color\":\"gold\"}");
     }
 
     public static String getMessage(String groupName) {
@@ -27,5 +30,12 @@ public final class ConfigUtil {
         }
 
         return parsed.get(groupName);
+    }
+
+    public static void reloadConfig() {
+        parsed.clear();
+
+        BudPlazaEntry.INSTANCE.reloadConfig();
+        Globals.config = BudPlazaEntry.INSTANCE.getConfig();
     }
 }

@@ -8,8 +8,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class BudPlazaEntry extends JavaPlugin {
 
+    public static BudPlazaEntry INSTANCE;
+
     @Override
     public void onEnable() {
+        INSTANCE = this;
         // Plugin startup logic
         this.getLog4JLogger().info("Plugin Instantiated");
         Globals.logger = this.getLog4JLogger();

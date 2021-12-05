@@ -3,6 +3,7 @@ package nws.lithiumdev.budplaza.software.mod.events;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.events.handlers.BlockEventHandlers;
 import nws.lithiumdev.budplaza.software.mod.events.handlers.EntityEventHandlers;
+import nws.lithiumdev.budplaza.software.mod.events.handlers.PlayerEventHandlers;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -32,5 +33,6 @@ public final class EventHandlerManager {
 
         manager.registerEvents(new BlockEventHandlers(), plugin);
         manager.registerEvents(new EntityEventHandlers(), plugin);
+        manager.registerEvents(new PlayerEventHandlers(), plugin);
     }
 }
