@@ -25,7 +25,7 @@ public final class BudPlazaEntry extends JavaPlugin {
         Globals.server = getServer();
         saveConfig();
 
-        CommandManager.registerAllCommands(this);
+        CommandManager.registerAllCommands();
         EventHandlerManager.registerHandlers(this);
     }
 

@@ -25,6 +25,8 @@ public final class ConfigUtil {
         addDefaultMessage("expected.nothing", "Expected nothing but found data");
         addDefaultMessage("commands.no_permission", "You do not have the permission to run this command");
         addDefaultMessage("version", "Running BudPlaza v1.0-SNAPSHOT");
+        addDefaultMessage("commands.blip.from_console", "Console operator wants your attention.");
+        addDefaultMessage("commands.blip.from_player", " wants your attention.");
     }
 
     private static void addDefaultMessage(@NotNull String groupName, @Nullable String value) {
