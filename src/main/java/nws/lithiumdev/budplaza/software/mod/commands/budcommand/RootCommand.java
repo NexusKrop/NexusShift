@@ -2,6 +2,7 @@ package nws.lithiumdev.budplaza.software.mod.commands.budcommand;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import nws.lithiumdev.budplaza.software.mod.util.CommandUtil;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -34,7 +35,7 @@ public abstract class RootCommand implements CommandExecutor, TabCompleter {
 
         ISubCommand subcommand = commands.get(args[0]);
         if (!sender.hasPermission(subcommand.getPermission())) {
-
+            CommandUtil.feedbackNoPermission(sender);
             return false;
         }
 

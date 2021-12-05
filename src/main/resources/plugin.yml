@@ -7,8 +7,8 @@ authors: [ WithLithum ]
 description: BudPlaza Service
 commands:
   budplaza:
-    description: "Shows the version of this plugin."
-    usage: "/<command>"
+    description: "Runs budplaza subcommands."
+    usage: "/<command> <subcommand> ..."
     permission: budplaza.commands.version
   blip:
     description: "Blips a player."
