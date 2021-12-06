@@ -27,6 +27,9 @@ public final class ConfigUtil {
         addDefaultMessage("version", "Running BudPlaza v1.0-SNAPSHOT");
         addDefaultMessage("commands.blip.from_console", "Console operator wants your attention.");
         addDefaultMessage("commands.blip.from_player", " wants your attention.");
+        addDefaultMessage("commands.perf.no_such_perf", "No such preference.");
+        addDefaultMessage("commands.perf.no_such_perf", "Preference '%s' was set to '%b'.");
+        addDefaultMessage("commands.generic.requires_player", "You are '%s' but the command can only be executed by player.");
     }
 
     private static void addDefaultMessage(@NotNull String groupName, @Nullable String value) {
