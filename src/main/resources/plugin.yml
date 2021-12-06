@@ -5,12 +5,4 @@ api-version: 1.18
 prefix: BP-Software
 authors: [ WithLithum ]
 description: BudPlaza Service
-commands:
-  budplaza:
-    description: "Runs budplaza subcommands."
-    usage: "/<command> <subcommand> ..."
-    permission: budplaza.commands.version
-  blip:
-    description: "Blips a player."
-    usage: "/<command> <player>"
-    permission: budplaza.commands.blip
+loadbefore: [CommandAPI]

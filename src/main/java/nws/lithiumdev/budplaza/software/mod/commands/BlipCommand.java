@@ -19,7 +19,7 @@ import org.bukkit.entity.Player;
 public class BlipCommand {
     @Default
     @Permission("blip")
-    public void command(CommandSender sender, @APlayerArgument Player player) {
+    public static void command(CommandSender sender, @APlayerArgument Player player) {
         if (sender instanceof ConsoleCommandSender) {
             player.sendMessage(
                     Component.text(ConfigUtil.getMessage("commands.blip.from_console"))
@@ -30,10 +30,6 @@ public class BlipCommand {
         }
 
         if (sender instanceof Player senderP) {
-            if (senderP == player) {
-                throw new CommandException("You cannot blip yourself!");
-            }
-
             player.sendMessage(
                     senderP.name().append(
                             Component.text(ConfigUtil.getMessage("commands.blip.from_player"))
