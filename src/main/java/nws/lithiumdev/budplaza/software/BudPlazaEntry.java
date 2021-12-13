@@ -21,6 +21,7 @@ public final class BudPlazaEntry extends JavaPlugin {
 
         Globals.config.addDefault("noPermissionText", "§4Not sufficient permissions");
         ConfigUtil.initConfig();
+        this.getServer().setSpawnRadius(0);
         Globals.config.options().copyDefaults(true);
         Globals.server = getServer();
         saveConfig();

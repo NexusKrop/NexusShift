@@ -1,6 +1,8 @@
 package nws.lithiumdev.budplaza.software.players;
 
 import nws.lithiumdev.budplaza.software.BudPlazaEntry;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -40,6 +42,31 @@ public final class PlayerUtil {
     public static void writeSetting(@NotNull Player player, @NotNull String key, boolean value) {
         Objects.requireNonNull(player)
                 .setMetadata("perf." + Objects.requireNonNull(key), new FixedMetadataValue(BudPlazaEntry.INSTANCE, value));
+    }
+
+    public static Location getHome(@NotNull Player player) {
+        if (!player.hasMetadata("home-x")
+        || !player.hasMetadata("home-y")
+        || !player.hasMetadata("home-z")
+        || !player.hasMetadata("home-dim")) {
+            return null;
+        }
+
+        var x = player.getMetadata("home-x").get(0).asDouble();
+        var y = player.getMetadata("home-y").get(0).asDouble();
+        var z = player.getMetadata("home-z").get(0).asDouble();
+        var dim = player.getMetadata("home-dim").get(0).asString();
+
+        var world = Bukkit.getServer().getWorld(dim);
+
+        return new Location(world, x, y, z);
+    }
+
+    public static void setHome(@NotNull Player player, @NotNull Location loc) {
+        player.setMetadata("home-x", new FixedMetadataValue(BudPlazaEntry.INSTANCE, loc.getBlockX()));
+        player.setMetadata("home-y", new FixedMetadataValue(BudPlazaEntry.INSTANCE, loc.getBlockY()));
+        player.setMetadata("home-z", new FixedMetadataValue(BudPlazaEntry.INSTANCE, loc.getBlockZ()));
+        player.setMetadata("home-dim", new FixedMetadataValue(BudPlazaEntry.INSTANCE, loc.getWorld().getName()));
     }
 
     /**
