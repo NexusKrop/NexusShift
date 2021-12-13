@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'nws.lithiumdev.budplaza'
-version = '1.0-SNAPSHOT'
+version = 'mc1.18.1-rev1-pre'
 
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
