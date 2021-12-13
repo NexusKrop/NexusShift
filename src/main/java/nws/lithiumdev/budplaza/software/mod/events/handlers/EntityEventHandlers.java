@@ -1,18 +1,20 @@
 package nws.lithiumdev.budplaza.software.mod.events.handlers;
 
+import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import net.kyori.adventure.sound.Sound;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.util.MessageUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
-import org.bukkit.Sound;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Vehicle;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
@@ -26,7 +28,7 @@ public class EntityEventHandlers implements Listener {
 
         if (event.getHitEntity() instanceof Mob m) {
             if (m.isDead()) {
-                p.playSound(p.getLocation(), Sound.BLOCK_ANVIL_DESTROY, 0.7f, 0.92f);
+                p.playSound(Sound.sound(Key.key("entity.experience_orb.pickup"), Sound.Source.MASTER, 1f, 1f));
                 p.sendActionBar(Component.text("Target: ")
                         .append(Component.text(m.getName()).color(NamedTextColor.GRAY)
                                 .decorate(TextDecoration.ITALIC))
@@ -51,7 +53,7 @@ public class EntityEventHandlers implements Listener {
         try {
             if (event.getEntity().getKiller() != null) {
                 Player p = event.getEntity().getKiller();
-                p.playSound(p.getLocation(), Sound.BLOCK_ANVIL_DESTROY, 0.7f, 0.92f);
+                p.playSound(Sound.sound(Key.key("ui.loom.select_pattern"), Sound.Source.PLAYER, 10, 0.5f));
                 p.sendActionBar(Component.text("Target: ")
                         .append(Component.text(event.getEntity().getName()).color(NamedTextColor.GRAY)
                                 .decorate(TextDecoration.ITALIC))
@@ -71,6 +73,12 @@ public class EntityEventHandlers implements Listener {
             event.setCancelled(true);
         } catch (Exception ex) {
             Globals.logger.error("Error when handling explosion: ", ex);
+        }
+    }
+
+    public void onEntityDamagedByEntity(EntityDamageByEntityEvent event) {
+        if (event.getDamager() instanceof Player p) {
+            p.playSound(Sound.sound(Key.key("item.trident.throw"), Sound.Source.PLAYER, 1f, 1.3f));
         }
     }
 }
