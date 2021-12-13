@@ -76,6 +76,7 @@ public class EntityEventHandlers implements Listener {
         }
     }
 
+    @EventHandler
     public void onEntityDamagedByEntity(EntityDamageByEntityEvent event) {
         if (event.getDamager() instanceof Player p) {
             p.playSound(Sound.sound(Key.key("item.trident.throw"), Sound.Source.PLAYER, 1f, 1.3f));
