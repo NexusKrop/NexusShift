@@ -1,10 +1,7 @@
 package nws.lithiumdev.budplaza.software.mod.commands;
 
 import dev.jorel.commandapi.CommandAPI;
-import nws.lithiumdev.budplaza.software.mod.commands.definitions.FireballCommand;
-import nws.lithiumdev.budplaza.software.mod.commands.definitions.HomeCommand;
-import nws.lithiumdev.budplaza.software.mod.commands.definitions.ICommand;
-import nws.lithiumdev.budplaza.software.mod.commands.definitions.SetSpawnCommand;
+import nws.lithiumdev.budplaza.software.mod.commands.definitions.*;
 
 public final class CommandManager {
     private CommandManager() {}
@@ -12,7 +9,8 @@ public final class CommandManager {
     private static final ICommand[] commands = {
             new HomeCommand(),
             new SetSpawnCommand(),
-            new FireballCommand()
+            new FireballCommand(),
+            new SpawnCommand()
     };
 
     public static void registerAllCommands() {
