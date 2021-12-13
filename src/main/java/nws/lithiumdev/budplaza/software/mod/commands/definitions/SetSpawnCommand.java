@@ -1,6 +1,7 @@
 package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
 import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.CommandPermission;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import nws.lithiumdev.budplaza.software.mod.Globals;
@@ -20,8 +21,11 @@ public class SetSpawnCommand implements ICommand {
                            Component.text(loc.getBlockZ()),
                            Component.text(loc.getYaw())
                    ).color(NamedTextColor.GOLD));
-                   Globals.logger.info(String.format("%s set spawn of %s to %s, %s, %s [%s]", sender.getName(), loc.getBlockX(), loc.getBlockY(),
+                   Globals.logger.info(String.format("%s set spawn of %s to %s, %s, %s [%s]", sender.getName(), sender.getWorld().getName(), loc.getBlockX(), loc.getBlockY(),
                            loc.getBlockZ(), loc.getYaw()));
-                });
+                })
+                .withPermission(CommandPermission.OP)
+                .withHelp("Sets spawn point, equivalent to setworldspawn.", "Sets the spawn position of the current world to your current position")
+                .register();
     }
 }
