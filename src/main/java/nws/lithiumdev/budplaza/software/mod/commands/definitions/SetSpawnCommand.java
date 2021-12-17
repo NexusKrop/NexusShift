@@ -24,7 +24,7 @@ public class SetSpawnCommand implements ICommand {
                    Globals.logger.info(String.format("%s set spawn of %s to %s, %s, %s [%s]", sender.getName(), sender.getWorld().getName(), loc.getBlockX(), loc.getBlockY(),
                            loc.getBlockZ(), loc.getYaw()));
                 })
-                .withPermission(CommandPermission.OP)
+                .withPermission("budplaza.commands.setspawn")
                 .withHelp("Sets spawn point, equivalent to setworldspawn.", "Sets the spawn position of the current world to your current position")
                 .register();
     }

@@ -18,7 +18,7 @@ import org.bukkit.entity.Player;
 @Help("Blips the target player in hope that it brings their attention.")
 public class BlipCommand {
     @Default
-    @Permission("blip")
+    @Permission("budplaza.commands.blip")
     public static void command(CommandSender sender, @APlayerArgument Player player) {
         if (sender instanceof ConsoleCommandSender) {
             player.sendMessage(

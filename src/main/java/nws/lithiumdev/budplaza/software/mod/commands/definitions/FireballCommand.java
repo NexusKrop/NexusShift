@@ -16,7 +16,7 @@ public class FireballCommand implements ICommand {
     public void register() {
         new CommandAPICommand("fireball")
                 .withArguments(new FloatArgument("power"))
-                .withPermission(CommandPermission.OP)
+                .withPermission("budplaza.commands.fireball")
                 .executesEntity(((sender, args) -> {
                     var entity = sender.getWorld().spawnEntity(sender.getLocation(), EntityType.FIREBALL);
                     if (!(entity instanceof Fireball fireball)) {

@@ -19,6 +19,7 @@ public class HomeCommand implements ICommand {
                         return;
                     }
                 })
+                .withPermission("budplaza.commands.home")
                 .register();
     }
 }
