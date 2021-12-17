@@ -6,9 +6,11 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockExplodeEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.projectiles.ProjectileSource;
 
@@ -40,7 +42,10 @@ public class BlockEventHandlers implements Listener {
         }
     }
 
-    public void onPlace(BlockPlaceEvent event) {
-
+    @EventHandler
+    public void onExplode(BlockExplodeEvent event) {
+        var block = event.getBlock();
+        block.getWorld().createExplosion(block.getLocation(), 2f, false, false);
+        event.setCancelled(true);
     }
 }
