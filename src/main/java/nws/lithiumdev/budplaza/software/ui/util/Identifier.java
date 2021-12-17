@@ -3,6 +3,7 @@ package nws.lithiumdev.budplaza.software.ui.util;
 import net.kyori.adventure.key.Key;
 import org.jetbrains.annotations.NotNull;
 
+@Deprecated
 public class Identifier implements Key {
     public Identifier(@NotNull String namespace, @NotNull String value)
     {

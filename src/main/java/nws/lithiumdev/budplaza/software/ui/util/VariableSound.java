@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
  * @see net.kyori.adventure.sound.Sound
  * @see nws.lithiumdev.budplaza.software.ui.util.Identifier
  */
+@Deprecated
 public class VariableSound implements Sound {
     /**
      * Initializes a new instance of the <b>VariableSound</b> class.
