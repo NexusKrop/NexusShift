@@ -6,6 +6,7 @@ import dev.jorel.commandapi.arguments.MultiLiteralArgument;
 import dev.jorel.commandapi.arguments.StringArgument;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import nws.lithiumdev.budplaza.software.BudPlazaEntry;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 
@@ -16,7 +17,7 @@ public class VersionCommandA implements ICommand {
                 .withSubcommand(new CommandAPICommand("version")
                         .withHelp("Queries BPS version.", "Shows the version of the BudPlaza Software installed.")
                         .executes(((sender, args) -> {
-                            sender.sendMessage(ConfigUtil.getMessage("version"));
+                            sender.sendMessage("Powered by BudPlaza Software");
                         })))
                 .withSubcommand(new CommandAPICommand("reload")
                         .withHelp("Reloads config.", "Reloads the configuration file of BudPlaza Software.")

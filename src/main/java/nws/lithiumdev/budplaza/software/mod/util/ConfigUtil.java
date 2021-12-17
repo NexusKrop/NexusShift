@@ -31,6 +31,7 @@ public final class ConfigUtil {
         addDefaultMessage("commands.perf.no_such_perf", "Preference '%s' was set to '%b'.");
         addDefaultMessage("commands.generic.requires_player", "You are '%s' but the command can only be executed by player.");
         addDefaultMessage("commands.home.no_home", "You have no home set. Use '/sethome' to set your home.");
+        addDefaultMessage("commands.bed.no_bed", "You have no personal spawn point, or it was blocked.");
     }
 
     private static void addDefaultMessage(@NotNull String groupName, @Nullable String value) {
