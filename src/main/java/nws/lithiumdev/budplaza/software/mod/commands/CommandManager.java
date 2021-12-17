@@ -10,13 +10,12 @@ public final class CommandManager {
             new HomeCommand(),
             new SetSpawnCommand(),
             new FireballCommand(),
-            new SpawnCommand()
+            new SpawnCommand(),
+            new BlipCommandA(),
+            new VersionCommandA()
     };
 
     public static void registerAllCommands() {
-        CommandAPI.registerCommand(BlipCommand.class);
-        CommandAPI.registerCommand(VersionCommand.class);
-
         for (var command:
              commands) {
             command.register();

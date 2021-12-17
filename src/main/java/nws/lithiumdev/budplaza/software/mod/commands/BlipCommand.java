@@ -16,6 +16,7 @@ import org.bukkit.entity.Player;
 
 @Command("blip")
 @Help("Blips the target player in hope that it brings their attention.")
+@Deprecated
 public class BlipCommand {
     @Default
     @Permission("budplaza.commands.blip")

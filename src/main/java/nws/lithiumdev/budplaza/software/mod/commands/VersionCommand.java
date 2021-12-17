@@ -13,6 +13,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @Command("budplaza")
+@Deprecated
 public class VersionCommand {
     @Default
     public static void defaultCommand(CommandSender sender) {
