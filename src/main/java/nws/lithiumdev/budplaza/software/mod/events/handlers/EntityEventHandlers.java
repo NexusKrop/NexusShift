@@ -8,6 +8,9 @@ import net.kyori.adventure.sound.Sound;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.util.MessageUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.bukkit.Bukkit;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
@@ -21,6 +24,8 @@ import org.bukkit.event.entity.ProjectileHitEvent;
 import java.util.Objects;
 
 public class EntityEventHandlers implements Listener {
+    private static final Logger logger = LogManager.getLogger("BP-EntityEvents");
+
     @EventHandler
     public void onProjectileHit(ProjectileHitEvent event) {
         if (event.getHitEntity() == null || !(event.getEntity().getShooter() instanceof Player p)) return;
@@ -58,10 +63,10 @@ public class EntityEventHandlers implements Listener {
                                 .decorate(TextDecoration.ITALIC))
                         .append(Component.text("( KILLED )")
                                 .color(NamedTextColor.RED)));
-                Globals.server.broadcast(MessageUtil.getDeathComponent(event));
+                Bukkit.getServer().broadcast(MessageUtil.getDeathComponent(event));
             }
         } catch (Exception ex) {
-            Globals.logger.error("Error when handling entity death: ", ex);
+            logger.error("Error when handling entity death: ", ex);
         }
     }
 
@@ -71,7 +76,7 @@ public class EntityEventHandlers implements Listener {
             event.getEntity().getWorld().createExplosion(event.getLocation(), 3.5f, false, false);
             event.setCancelled(true);
         } catch (Exception ex) {
-            Globals.logger.error("Error when handling explosion: ", ex);
+            logger.error("Error when handling explosion: ", ex);
         }
     }
 

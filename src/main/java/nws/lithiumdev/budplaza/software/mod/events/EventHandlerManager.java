@@ -4,6 +4,8 @@ import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.events.handlers.BlockEventHandlers;
 import nws.lithiumdev.budplaza.software.mod.events.handlers.EntityEventHandlers;
 import nws.lithiumdev.budplaza.software.mod.events.handlers.PlayerEventHandlers;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,6 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  * @author WithLithum
  */
 public final class EventHandlerManager {
+    private static final Logger logger = LogManager.getLogger("BP-EventHandler");
     private EventHandlerManager() {}
 
     private static boolean registered;
@@ -28,7 +31,7 @@ public final class EventHandlerManager {
         }
 
         registered = true;
-        Globals.logger.info("Initializing events");
+        logger.info("Initializing events");
         PluginManager manager = plugin.getServer().getPluginManager();
 
         manager.registerEvents(new BlockEventHandlers(), plugin);

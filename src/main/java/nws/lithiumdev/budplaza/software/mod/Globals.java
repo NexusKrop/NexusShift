@@ -2,6 +2,7 @@ package nws.lithiumdev.budplaza.software.mod;
 
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.sound.Sound;
+import nws.lithiumdev.budplaza.software.BudPlazaEntry;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.Server;
@@ -17,6 +18,10 @@ public final class Globals {
 
     public static final Sound SOUND_EXP_PICKUP = Sound.sound(Key.key("entity.expierence_orb.pickuip"), Sound.Source.PLAYER, 1f, 1f);
 
+    public static void reloadConfig() {
+        BudPlazaEntry.getInstance().getConfig();
+    }
+
     public static void initFileConfiguration(FileConfiguration config) {
         if (Globals.configuration == null) {
             Globals.configuration = config;
@@ -25,6 +30,15 @@ public final class Globals {
         } else {
             throw new IllegalStateException("Config was ALREADY set!");
         }
+    }
+
+    /**
+     * Adds a config to the default configuration.
+     * @param path The path.
+     * @param value The value.
+     */
+    public static void addDefaultConfig(String path, String value) {
+        configuration.addDefault(path, value);
     }
 
     public static FileConfiguration getConfiguration() {

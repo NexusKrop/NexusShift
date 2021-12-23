@@ -3,10 +3,13 @@ package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.FloatArgument;
 import nws.lithiumdev.budplaza.software.mod.Globals;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
 
 public class FireballCommand implements ICommand {
+    private static final Logger logger = LogManager.getLogger("BP-FireballCommand");
 
     @Override
     public void register() {
@@ -16,7 +19,7 @@ public class FireballCommand implements ICommand {
                 .executesEntity(((sender, args) -> {
                     var entity = sender.getWorld().spawnEntity(sender.getLocation(), EntityType.FIREBALL);
                     if (!(entity instanceof Fireball fireball)) {
-                        Globals.logger.error("Failed to spawn fireball: Fireball cannot be casted");
+                        logger.error("Failed to spawn fireball: Fireball cannot be casted");
                         return;
                     }
 

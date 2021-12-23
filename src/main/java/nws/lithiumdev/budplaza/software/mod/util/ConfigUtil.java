@@ -15,11 +15,11 @@ public final class ConfigUtil {
     private static final HashMap<String, Component> parsed = new HashMap<>();
 
     public static void initConfig() {
-        Globals.config.addDefault("messageGroups.target_block_summary", "Target");
-        Globals.config.addDefault("messageGroups.hp", "HP");
-        Globals.config.addDefault("messageGroups.welcome", "{\"text\":\"Welcome!\", \"color\":\"green\"}");
-        Globals.config.addDefault("messageGroups.reloadConfigDone", "{\"text\":\"Configuration reloaded.\", \"color\":\"green\"}");
-        Globals.config.addDefault("messageGroups.reloadConfig", "{\"text\":\"Reloading config, please wait...\", \"color\":\"gold\"}");
+        Globals.addDefaultConfig("messageGroups.target_block_summary", "Target");
+        Globals.addDefaultConfig("messageGroups.hp", "HP");
+        Globals.addDefaultConfig("messageGroups.welcome", "{\"text\":\"Welcome!\", \"color\":\"green\"}");
+        Globals.addDefaultConfig("messageGroups.reloadConfigDone", "{\"text\":\"Configuration reloaded.\", \"color\":\"green\"}");
+        Globals.addDefaultConfig("messageGroups.reloadConfig", "{\"text\":\"Reloading config, please wait...\", \"color\":\"gold\"}");
         addDefaultMessage("expected.subcommand", "Expected subcommand but found '%s'");
         addDefaultMessage("expected.subcommand_none", "Expected subcommand");
         addDefaultMessage("expected.nothing", "Expected nothing but found data");
@@ -36,21 +36,22 @@ public final class ConfigUtil {
     }
 
     private static void addDefaultMessage(@NotNull String groupName, @Nullable String value) {
-        Globals.config.addDefault("messageGroups." + groupName, value);
+        Globals.addDefaultConfig("messageGroups." + groupName, value);
     }
 
     public static String getMessage(String groupName) {
-        return Globals.config.getString("messageGroups." + groupName);
+        return Globals.getConfiguration().getString("messageGroups." + groupName);
     }
 
     public static Component getComponentMessage(String groupName) {
         return parsed.computeIfAbsent(groupName, v -> GsonComponentSerializer.gson().deserialize(getMessage(groupName)));
     }
 
+    /**
+     * Performs a full reload by clearing all parsed configurations, then reload the config file.
+     */
     public static void reloadConfig() {
         parsed.clear();
-
-        BudPlazaEntry.INSTANCE.reloadConfig();
-        Globals.config = BudPlazaEntry.INSTANCE.getConfig();
+        Globals.reloadConfig();
     }
 }

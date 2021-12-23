@@ -6,6 +6,8 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,9 +15,11 @@ import org.bukkit.event.block.BlockExplodeEvent;
 import org.bukkit.projectiles.ProjectileSource;
 
 public class BlockEventHandlers implements Listener {
+    private static final Logger logger = LogManager.getLogger("BP-BlockEvents");
+
     public BlockEventHandlers() {
         super();
-        PlayerUtil.perfs.add("target.HitMessage");
+        PlayerUtil.registerPref("target.HitMessage");
     }
 
     @EventHandler
@@ -31,7 +35,7 @@ public class BlockEventHandlers implements Listener {
                         .append(Component.text("15").color(NamedTextColor.GREEN)));
             }
         } catch (Exception ex) {
-            Globals.logger.error("Exception caught when processing onTargetHit: ", ex);
+            logger.error("Exception caught when processing onTargetHit: ", ex);
         }
     }
 

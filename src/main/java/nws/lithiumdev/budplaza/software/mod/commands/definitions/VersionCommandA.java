@@ -28,13 +28,14 @@ public class VersionCommandA implements ICommand {
                 .withSubcommand(new CommandAPICommand("pref")
                         .withHelp("Modifies preference.", "Alters your preference.")
                         .withPermission("budplaza.commands.pref")
-                        .withArguments(new MultiLiteralArgument(PlayerUtil.CONSTANT_PERFS), new BooleanArgument("toggle"))
+                        .withArguments(new MultiLiteralArgument(PlayerUtil.getPerfs()), new BooleanArgument("toggle"))
                         .executesPlayer(((sender, args) -> {
                             if (!(args[0] instanceof String key)) {
                                 return;
                             }
 
-                            if (!PlayerUtil.perfs.contains(key)) {
+                            if (!PlayerUtil.isPrefRegistered(key)) {
+                                // Feedback
                                 sender.sendMessage(Component.text(ConfigUtil.getMessage("commands.perf.no_such_perf"))
                                         .color(NamedTextColor.RED));
                                 return;
