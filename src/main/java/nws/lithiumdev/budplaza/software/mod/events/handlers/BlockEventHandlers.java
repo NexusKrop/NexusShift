@@ -6,12 +6,10 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockExplodeEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.projectiles.ProjectileSource;
 
 public class BlockEventHandlers implements Listener {
@@ -24,18 +22,13 @@ public class BlockEventHandlers implements Listener {
     public void onTargetHit(TargetHitEvent event) {
         try {
             ProjectileSource projectileOwner = event.getEntity().getShooter();
-
-            if (projectileOwner instanceof Player p) {
-                if (PlayerUtil.getSetting(p, "target.HitMessage")) {
-                    PlayerUtil.blipPlayer(p);
-                    p.sendActionBar(Component.text(ConfigUtil.getMessage("target_block_summary") + ": ")
-                            .color(NamedTextColor.GOLD)
-                            .append(
-                                    Component.text(event.getSignalStrength()).color(NamedTextColor.AQUA)
-                            )
-                            .append(Component.text("/").color(NamedTextColor.WHITE))
-                            .append(Component.text("15").color(NamedTextColor.GREEN)));
-                }
+            if (projectileOwner instanceof Player p && PlayerUtil.getSetting(p, "target.HitMessage")) {
+                PlayerUtil.blipPlayer(p);
+                p.sendActionBar(Component.text(ConfigUtil.getMessage("target_block_summary") + ": ")
+                        .color(NamedTextColor.GOLD)
+                        .append(Component.text(event.getSignalStrength()).color(NamedTextColor.AQUA))
+                        .append(Component.text("/").color(NamedTextColor.WHITE))
+                        .append(Component.text("15").color(NamedTextColor.GREEN)));
             }
         } catch (Exception ex) {
             Globals.logger.error("Exception caught when processing onTargetHit: ", ex);

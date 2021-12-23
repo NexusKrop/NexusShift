@@ -5,8 +5,6 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import nws.lithiumdev.budplaza.software.mod.util.CommandUtil;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
-import org.bukkit.Bukkit;
-import org.bukkit.block.Block;
 
 public class BedCommand implements ICommand {
     @Override
