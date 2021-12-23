@@ -2,7 +2,6 @@ package nws.lithiumdev.budplaza.software.mod.util;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
-import nws.lithiumdev.budplaza.software.BudPlazaEntry;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -33,6 +32,7 @@ public final class ConfigUtil {
         addDefaultMessage("commands.home.no_home", "You have no home set. Use '/sethome' to set your home.");
         addDefaultMessage("commands.bed.no_bed", "You have no personal spawn point, or it was blocked.");
         addDefaultMessage("commands.bed.stuck", "You are stuck in a block. Get out and try again.");
+        addDefaultMessage("ui.target.entity", "Target: ");
     }
 
     private static void addDefaultMessage(@NotNull String groupName, @Nullable String value) {

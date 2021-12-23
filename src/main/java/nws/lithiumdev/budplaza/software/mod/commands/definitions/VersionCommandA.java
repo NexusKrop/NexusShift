@@ -3,6 +3,7 @@ package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.BooleanArgument;
 import dev.jorel.commandapi.arguments.MultiLiteralArgument;
+import dev.jorel.commandapi.executors.CommandExecutor;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
@@ -14,9 +15,7 @@ public class VersionCommandA implements ICommand {
         new CommandAPICommand("budplaza")
                 .withSubcommand(new CommandAPICommand("version")
                         .withHelp("Queries BPS version.", "Shows the version of the BudPlaza Software installed.")
-                        .executes(((sender, args) -> {
-                            sender.sendMessage("Powered by BudPlaza Software");
-                        })))
+                        .executes((CommandExecutor) (sender, args) -> sender.sendMessage("Powered by BudPlaza Software")))
                 .withSubcommand(new CommandAPICommand("reload")
                         .withHelp("Reloads config.", "Reloads the configuration file of BudPlaza Software.")
                         .withPermission("budplaza.commands.reload")

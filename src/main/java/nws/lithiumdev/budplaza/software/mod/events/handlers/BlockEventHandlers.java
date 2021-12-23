@@ -3,7 +3,6 @@ package nws.lithiumdev.budplaza.software.mod.events.handlers;
 import io.papermc.paper.event.block.TargetHitEvent;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 import org.apache.logging.log4j.LogManager;

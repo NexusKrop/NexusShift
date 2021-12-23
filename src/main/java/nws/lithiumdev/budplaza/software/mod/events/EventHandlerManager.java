@@ -1,6 +1,6 @@
 package nws.lithiumdev.budplaza.software.mod.events;
 
-import nws.lithiumdev.budplaza.software.mod.Globals;
+
 import nws.lithiumdev.budplaza.software.mod.events.handlers.BlockEventHandlers;
 import nws.lithiumdev.budplaza.software.mod.events.handlers.EntityEventHandlers;
 import nws.lithiumdev.budplaza.software.mod.events.handlers.PlayerEventHandlers;

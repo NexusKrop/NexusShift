@@ -5,7 +5,7 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.sound.Sound;
-import nws.lithiumdev.budplaza.software.mod.Globals;
+import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import nws.lithiumdev.budplaza.software.mod.util.MessageUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 import org.apache.logging.log4j.LogManager;
@@ -25,6 +25,7 @@ import java.util.Objects;
 
 public class EntityEventHandlers implements Listener {
     private static final Logger logger = LogManager.getLogger("BP-EntityEvents");
+    public static final String MESSAGE_TARGET_ENTITY = "ui.target.entity";
 
     @EventHandler
     public void onProjectileHit(ProjectileHitEvent event) {
@@ -33,14 +34,14 @@ public class EntityEventHandlers implements Listener {
         if (event.getHitEntity() instanceof Mob m) {
             if (m.isDead()) {
                 p.playSound(Sound.sound(Key.key("entity.experience_orb.pickup"), Sound.Source.MASTER, 1f, 1f));
-                p.sendActionBar(Component.text("Target: ")
+                p.sendActionBar(Component.text(ConfigUtil.getMessage(MESSAGE_TARGET_ENTITY))
                         .append(Component.text(m.getName()).color(NamedTextColor.GRAY)
                                 .decorate(TextDecoration.ITALIC))
                         .append(Component.text("( KILLED )")
                                 .color(NamedTextColor.RED)));
             } else {
                 PlayerUtil.blipPlayer(p);
-                p.sendActionBar(Component.text("Target: ")
+                p.sendActionBar(Component.text(ConfigUtil.getMessage(MESSAGE_TARGET_ENTITY))
                         .append(Component.text(m.getName()).color(NamedTextColor.GOLD))
                         .append(Component.text("( ")
                                 .color(NamedTextColor.WHITE))
@@ -58,7 +59,7 @@ public class EntityEventHandlers implements Listener {
             if (event.getEntity().getKiller() != null) {
                 Player p = event.getEntity().getKiller();
                 p.playSound(Sound.sound(Key.key("ui.loom.select_pattern"), Sound.Source.PLAYER, 10, 0.5f));
-                p.sendActionBar(Component.text("Target: ")
+                p.sendActionBar(Component.text(ConfigUtil.getMessage(MESSAGE_TARGET_ENTITY))
                         .append(Component.text(event.getEntity().getName()).color(NamedTextColor.GRAY)
                                 .decorate(TextDecoration.ITALIC))
                         .append(Component.text("( KILLED )")
