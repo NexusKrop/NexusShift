@@ -1,14 +1,10 @@
 package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
-import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPICommand;
-import dev.jorel.commandapi.CommandPermission;
 import dev.jorel.commandapi.arguments.FloatArgument;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
-import org.bukkit.projectiles.ProjectileSource;
-import org.bukkit.util.Vector;
 
 public class FireballCommand implements ICommand {
 

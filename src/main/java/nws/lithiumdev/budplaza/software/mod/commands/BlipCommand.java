@@ -9,14 +9,16 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
-import org.bukkit.command.CommandException;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * @deprecated Use {@link nws.lithiumdev.budplaza.software.mod.commands.definitions.BlipCommandA} instead.
+ */
 @Command("blip")
 @Help("Blips the target player in hope that it brings their attention.")
-@Deprecated
+@Deprecated(since = "1pre-20211217", forRemoval = true)
 public class BlipCommand {
     @Default
     @Permission("budplaza.commands.blip")

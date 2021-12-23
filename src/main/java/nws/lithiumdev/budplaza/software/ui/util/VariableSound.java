@@ -14,8 +14,9 @@ import org.jetbrains.annotations.Nullable;
  * @author WithLithum
  * @see net.kyori.adventure.sound.Sound
  * @see nws.lithiumdev.budplaza.software.ui.util.Identifier
+ * @deprecated Use made-ready methods in {@link Sound} to create internal implementations of the interface.
  */
-@Deprecated
+@Deprecated(since = "1pre-20211217", forRemoval = true)
 public class VariableSound implements Sound {
     /**
      * Initializes a new instance of the <b>VariableSound</b> class.

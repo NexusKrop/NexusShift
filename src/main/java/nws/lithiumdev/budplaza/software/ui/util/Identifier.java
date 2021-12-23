@@ -3,7 +3,10 @@ package nws.lithiumdev.budplaza.software.ui.util;
 import net.kyori.adventure.key.Key;
 import org.jetbrains.annotations.NotNull;
 
-@Deprecated
+/**
+ * @deprecated Use methods in {@link Key}.
+ */
+@Deprecated(since = "1pre-20211217", forRemoval = true)
 public class Identifier implements Key {
     public Identifier(@NotNull String namespace, @NotNull String value)
     {

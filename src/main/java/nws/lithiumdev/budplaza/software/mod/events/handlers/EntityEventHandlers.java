@@ -11,7 +11,6 @@ import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Vehicle;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -40,7 +39,7 @@ public class EntityEventHandlers implements Listener {
                         .append(Component.text(m.getName()).color(NamedTextColor.GOLD))
                         .append(Component.text("( ")
                                 .color(NamedTextColor.WHITE))
-                        .append(Component.text(Double.valueOf(m.getHealth()).toString())).color(NamedTextColor.AQUA)
+                        .append(Component.text(Double.toString(m.getHealth()))).color(NamedTextColor.AQUA)
                         .append(Component.text(" / ").color(NamedTextColor.WHITE))
                         .append(Component.text(Objects.requireNonNull(m.getAttribute(Attribute.GENERIC_MAX_HEALTH)).getValue()).color(NamedTextColor.RED))
                         .append(Component.text(" )").color(NamedTextColor.WHITE)));

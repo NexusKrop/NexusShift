@@ -3,11 +3,21 @@ package nws.lithiumdev.budplaza.software.mod.util;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
 public final class CommandUtil {
+    /**
+     * Throws an exception.
+     * @throws IllegalStateException Always throw.
+     */
+    @Contract(value = " -> fail", pure = true)
+    private CommandUtil() {
+        throw new IllegalStateException("No CommandUtil instances for you!");
+    }
+
     private static final String EXPECTED_NOTHING_MESSAGE = "expected.nothing";
 
     /**

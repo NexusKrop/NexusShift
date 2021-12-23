@@ -44,11 +44,7 @@ public final class ConfigUtil {
     }
 
     public static Component getComponentMessage(String groupName) {
-        if (!parsed.containsKey(groupName)) {
-            parsed.put(groupName, GsonComponentSerializer.gson().deserialize(getMessage(groupName)));
-        }
-
-        return parsed.get(groupName);
+        return parsed.computeIfAbsent(groupName, v -> GsonComponentSerializer.gson().deserialize(getMessage(groupName)));
     }
 
     public static void reloadConfig() {

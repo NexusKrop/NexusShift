@@ -2,7 +2,6 @@ package nws.lithiumdev.budplaza.software.mod.commands;
 
 import dev.jorel.commandapi.annotations.*;
 import dev.jorel.commandapi.annotations.arguments.ABooleanArgument;
-import dev.jorel.commandapi.annotations.arguments.AMultiLiteralArgument;
 import dev.jorel.commandapi.annotations.arguments.AStringArgument;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -12,8 +11,11 @@ import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * @deprecated Use {@link nws.lithiumdev.budplaza.software.mod.commands.definitions.VersionCommandA} instead.
+ */
 @Command("budplaza")
-@Deprecated
+@Deprecated(since = "1pre-20211217", forRemoval = true)
 public class VersionCommand {
     @Default
     public static void defaultCommand(CommandSender sender) {

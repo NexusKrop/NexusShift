@@ -8,18 +8,9 @@ import org.jetbrains.annotations.NotNull;
  * Represents a world/space-independent location consisted of X, Y and Z components.
  */
 public class Vector3 {
-    /**
-     * Gets or sets the X component of this instance.
-     */
-    public double x;
-    /**
-     * Gets or sets the Y component of this instance.
-     */
-    public double y;
-    /**
-     * Gets or sets the Z component of this instance.
-     */
-    public double z;
+    private double x;
+    private double y;
+    private double z;
 
     /**
      * Initializes a new instance of the {@link Vector3} class.
@@ -28,13 +19,46 @@ public class Vector3 {
      * @param z The Z component.
      */
     public Vector3(double x, double y, double z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.setX(x);
+        this.setY(y);
+        this.setZ(z);
     }
 
     @NotNull
     public Location toBukkitLocation(@NotNull World world) {
-        return new Location(world, x, y, z);
+        return new Location(world, getX(), getY(), getZ());
+    }
+
+    /**
+     * Gets or sets the X component of this instance.
+     */
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    /**
+     * Gets or sets the Y component of this instance.
+     */
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    /**
+     * Gets or sets the Z component of this instance.
+     */
+    public double getZ() {
+        return z;
+    }
+
+    public void setZ(double z) {
+        this.z = z;
     }
 }
