@@ -11,7 +11,8 @@ public final class CommandManager {
             new FireballCommand(),
             new SpawnCommand(),
             new BlipCommandA(),
-            new VersionCommandA()
+            new VersionCommandA(),
+            new TpsCommand()
     };
 
     public static void registerAllCommands() {

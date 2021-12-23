@@ -33,6 +33,7 @@ public final class ConfigUtil {
         addDefaultMessage("commands.bed.no_bed", "You have no personal spawn point, or it was blocked.");
         addDefaultMessage("commands.bed.stuck", "You are stuck in a block. Get out and try again.");
         addDefaultMessage("ui.target.entity", "Target: ");
+        addDefaultMessage("commands.tps.result", "TPS is %i");
     }
 
     private static void addDefaultMessage(@NotNull String groupName, @Nullable String value) {
