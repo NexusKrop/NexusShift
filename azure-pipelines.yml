@@ -10,17 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'SonarCloud'
-    organization: 'withlithum-1'
-    scannerMode: 'Other'
-    extraProperties: |
-      # Additional properties that will be passed to the scanner,
-      # Put one key=value per line, example:
-      # sonar.exclusions=**/*.bin
-      sonar.projectKey=WithLithum_PaperSoft
-      sonar.projectName=PaperSoft
 - task: Gradle@2
   inputs:
     workingDirectory: ''
@@ -32,4 +21,3 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'build'
-    sonarQubeRunAnalysis: true
