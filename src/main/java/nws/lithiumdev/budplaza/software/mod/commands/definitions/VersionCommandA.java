@@ -2,7 +2,7 @@ package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.BooleanArgument;
-import dev.jorel.commandapi.arguments.MultiLiteralArgument;
+import dev.jorel.commandapi.arguments.StringArgument;
 import dev.jorel.commandapi.executors.CommandExecutor;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -27,7 +27,7 @@ public class VersionCommandA implements ICommand {
                 .withSubcommand(new CommandAPICommand("pref")
                         .withHelp("Modifies preference.", "Alters your preference.")
                         .withPermission("budplaza.commands.pref")
-                        .withArguments(new MultiLiteralArgument(PlayerUtil.getPreferenceOptions()), new BooleanArgument("toggle"))
+                        .withArguments(new StringArgument("preference"), new BooleanArgument("toggle"))
                         .executesPlayer(((sender, args) -> {
                             if (!(args[0] instanceof String key)) {
                                 return;
