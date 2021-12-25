@@ -31,7 +31,7 @@ public final class PlayerUtil {
     private static final String METADATA_HOME_Z = "home-z";
     private static final String METADATA_HOME_DIM = "home-dim";
 
-    protected static final List<String> perfs = new ArrayList<>();
+    private static final List<String> perfs = new ArrayList<>();
 
     /**
      * Plays a sound effect to the specified player.
@@ -42,8 +42,8 @@ public final class PlayerUtil {
         Objects.requireNonNull(player).playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
     }
 
-    public static String[] getPerfs() {
-        return (String[]) (perfs.toArray());
+    public static String[] getPreferenceOptions() {
+        return perfs.toArray(new String[0]);
     }
 
     /**

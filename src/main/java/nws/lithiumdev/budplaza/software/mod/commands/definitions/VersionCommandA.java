@@ -27,7 +27,7 @@ public class VersionCommandA implements ICommand {
                 .withSubcommand(new CommandAPICommand("pref")
                         .withHelp("Modifies preference.", "Alters your preference.")
                         .withPermission("budplaza.commands.pref")
-                        .withArguments(new MultiLiteralArgument(PlayerUtil.getPerfs()), new BooleanArgument("toggle"))
+                        .withArguments(new MultiLiteralArgument(PlayerUtil.getPreferenceOptions()), new BooleanArgument("toggle"))
                         .executesPlayer(((sender, args) -> {
                             if (!(args[0] instanceof String key)) {
                                 return;
