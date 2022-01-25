@@ -88,7 +88,7 @@ public class EntityEventHandlers implements Listener {
                 }
             }
 
-            event.getEntity().getWorld().createExplosion(event.getLocation(), 3.5f, false, false, source);
+            event.getEntity().getWorld().createExplosion(event.getLocation(), 4f, false, false, source);
             event.setCancelled(true);
         } catch (Exception ex) {
             logger.error("Error when handling explosion: ", ex);
