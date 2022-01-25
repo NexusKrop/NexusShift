@@ -7,6 +7,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * Defines the entry point of the plugin.
+ */
 public final class BudPlazaEntry extends JavaPlugin {
 
     private static BudPlazaEntry instance;
@@ -24,6 +27,9 @@ public final class BudPlazaEntry extends JavaPlugin {
         return instance;
     }
 
+    /**
+     * Initializes this instance and it's processes.
+     */
     @Override
     public void onEnable() {
         // I'll have to leave it here: (if you have S2696)
@@ -41,6 +47,6 @@ public final class BudPlazaEntry extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        // Reserved
     }
 }

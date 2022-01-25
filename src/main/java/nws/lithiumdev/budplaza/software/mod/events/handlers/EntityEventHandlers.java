@@ -12,8 +12,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -74,7 +76,19 @@ public class EntityEventHandlers implements Listener {
     @EventHandler
     public void onEntityExplode(EntityExplodeEvent event) {
         try {
-            event.getEntity().getWorld().createExplosion(event.getLocation(), 3.5f, false, false);
+            var ent = event.getEntity();
+            Entity source = null;
+
+            if (ent instanceof TNTPrimed tnt) {
+                source = tnt.getSource();
+
+                // Make sure source is valid
+                if (source != null && !source.isValid()) {
+                    source = null;
+                }
+            }
+
+            event.getEntity().getWorld().createExplosion(event.getLocation(), 3.5f, false, false, source);
             event.setCancelled(true);
         } catch (Exception ex) {
             logger.error("Error when handling explosion: ", ex);
