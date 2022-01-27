@@ -37,6 +37,9 @@ public final class ConfigUtil {
         addDefaultMessage("commands.bed.stuck", "You are stuck in a block. Get out and try again.");
         addDefaultMessage("ui.target.entity", "Target: ");
         addDefaultMessage("commands.tps.result", "TPS is %i");
+        addDefaultMessage("commands.version.license", "Licensed Under: ");
+        addDefaultMessage("commands.version.sources.prefix", "Get Sources: ");
+        addDefaultMessage("generic.dev.git_repo", "Git Repository");
     }
 
     private static void addDefaultMessage(@NotNull String groupName, @Nullable String value) {
