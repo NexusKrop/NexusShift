@@ -28,7 +28,7 @@ public class BlockEventHandlers implements Listener {
     public void onTargetHit(TargetHitEvent event) {
         try {
             ProjectileSource projectileOwner = event.getEntity().getShooter();
-            if (projectileOwner instanceof Player p && PlayerUtil.getSetting(p, "target.HitMessage")) {
+            if (projectileOwner instanceof Player p) {
                 PlayerUtil.blipPlayer(p);
                 p.sendActionBar(Component.text(ConfigUtil.getMessage("target_block_summary") + ": ")
                         .color(NamedTextColor.GOLD)

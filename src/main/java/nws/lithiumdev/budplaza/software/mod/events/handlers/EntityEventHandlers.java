@@ -85,20 +85,6 @@ public class EntityEventHandlers implements Listener {
     }
 
     @EventHandler
-    public void onEntityPickupItem(EntityPickupItemEvent event) {
-        // 判断是否是玩家
-        if (!(event.getEntity() instanceof Player player)) {
-            // 只侦听玩家，其它不算（直接放弃）
-            return;
-        }
-
-        if (PlayerUtil.getSetting(player, "noPickup")) {
-            // 如果玩家设置noPickup，直接取消事件
-            event.setCancelled(true);
-        }
-    }
-
-    @EventHandler
     public void onEntityDamagedByEntity(EntityDamageByEntityEvent event) {
         var entity = event.getEntity();
 

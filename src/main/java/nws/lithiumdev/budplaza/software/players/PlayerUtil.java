@@ -70,18 +70,6 @@ public final class PlayerUtil {
         perfs.add(Objects.requireNonNull(key));
     }
 
-    /**
-     * Writes a setting to a specified player's metadata.
-     * @param player The player to write.
-     * @param key The key of the setting to write.
-     * @param value The value.
-     * @throws NullPointerException Thrown when player or the key is null.
-     */
-    public static void writeSetting(@NotNull Player player, @NotNull String key, boolean value) {
-        Objects.requireNonNull(player)
-                .setMetadata(METADATA_PREF_HEADER + Objects.requireNonNull(key), new FixedMetadataValue(BudPlazaEntry.getInstance(), value));
-    }
-
     public static Location getHome(@NotNull Player player) {
         if (!player.hasMetadata(METADATA_HOME_X)
         || !player.hasMetadata(METADATA_HOME_Y)
@@ -105,28 +93,5 @@ public final class PlayerUtil {
         player.setMetadata(METADATA_HOME_Y, new FixedMetadataValue(BudPlazaEntry.getInstance(), loc.getBlockY()));
         player.setMetadata(METADATA_HOME_Z, new FixedMetadataValue(BudPlazaEntry.getInstance(), loc.getBlockZ()));
         player.setMetadata(METADATA_HOME_DIM, new FixedMetadataValue(BudPlazaEntry.getInstance(), loc.getWorld().getName()));
-    }
-
-    /**
-     * Gets a setting.
-     * @param player The player.
-     * @param key The key of the setting.
-     * @return If not exists or set as, true; if set as, 'false'.
-     */
-    public static boolean getSetting(@NotNull Player player, @NotNull String key) {
-        if (!Objects.requireNonNull(player).hasMetadata(METADATA_PREF_HEADER + key)) {
-            return true;
-        }
-
-        List<MetadataValue> data = player.getMetadata(METADATA_PREF_HEADER + key);
-
-        for (MetadataValue dataItem:
-             data) {
-            if (dataItem.getOwningPlugin() instanceof BudPlazaEntry) {
-                return dataItem.asBoolean();
-            }
-        }
-
-        return true;
     }
 }

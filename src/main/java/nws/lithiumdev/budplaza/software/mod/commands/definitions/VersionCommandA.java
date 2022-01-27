@@ -45,24 +45,6 @@ public class VersionCommandA implements ICommand {
                             ConfigUtil.reloadConfig();
                             sender.sendMessage(ConfigUtil.getComponentMessage("reloadConfigDone"));
                         })))
-                .withSubcommand(new CommandAPICommand("pref")
-                        .withHelp("Modifies preference.", "Alters your preference.")
-                        .withPermission("budplaza.commands.pref")
-                        .withArguments(new StringArgument("preference"), new BooleanArgument("toggle"))
-                        .executesPlayer(((sender, args) -> {
-                            if (!(args[0] instanceof String key)) {
-                                return;
-                            }
-
-                            if (!PlayerUtil.isPrefRegistered(key)) {
-                                // Feedback
-                                sender.sendMessage(Component.text(ConfigUtil.getMessage("commands.perf.no_such_perf"))
-                                        .color(NamedTextColor.RED));
-                                return;
-                            }
-
-                            PlayerUtil.writeSetting(sender, key, (boolean)args[1]);
-                        })))
                 .register();
     }
 }
