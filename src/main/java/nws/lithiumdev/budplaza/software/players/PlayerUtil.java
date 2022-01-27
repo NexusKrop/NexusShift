@@ -3,11 +3,17 @@
 
 package nws.lithiumdev.budplaza.software.players;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import nws.lithiumdev.budplaza.software.BudPlazaEntry;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.jetbrains.annotations.Contract;
@@ -86,6 +92,33 @@ public final class PlayerUtil {
         var world = Bukkit.getServer().getWorld(dim);
 
         return new Location(world, x, y, z);
+    }
+
+    public static Component getDamageComponent(EntityDamageByEntityEvent event, LivingEntity living, AttributeInstance maxHealth) {
+        // Calculates the correct health after damage
+        var finHealth = living.getHealth() - event.getDamage();
+
+        if (maxHealth == null) {
+            throw new IllegalStateException("No MAX HEALTH?");
+        }
+
+        // Make sure dead entities get the correct health
+        if (finHealth < 0) finHealth = 0;
+
+        // Produces something like "Villager HP <current/max> [-12]
+        return Component.text()
+                .content(living.getName())
+                .color(NamedTextColor.AQUA)
+                .append(Component.text(" HP").color(NamedTextColor.LIGHT_PURPLE))
+                .append(Component.text("<").color(NamedTextColor.WHITE))
+                .append(Component.text(finHealth))
+                .append(Component.text("/").color(NamedTextColor.RED))
+                .append(Component.text(maxHealth.getValue()))
+                .append(Component.text("> [").color(NamedTextColor.WHITE))
+                .append(Component.text("-").color(NamedTextColor.GRAY))
+                .append(Component.text(event.getDamage()).color(NamedTextColor.DARK_RED))
+                .append(Component.text(" ]").color((NamedTextColor.WHITE)))
+                .build();
     }
 
     public static void setHome(@NotNull Player player, @NotNull Location loc) {

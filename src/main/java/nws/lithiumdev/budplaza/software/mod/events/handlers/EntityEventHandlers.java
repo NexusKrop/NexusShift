@@ -93,37 +93,21 @@ public class EntityEventHandlers implements Listener {
             p.playSound(Sound.sound(Key.key("item.trident.throw"), Sound.Source.PLAYER, 1f, 1.3f));
         }
 
-        if (event.getDamager() instanceof Projectile projectile && entity instanceof LivingEntity living) {
-            var maxHealth = living.getAttribute(Attribute.GENERIC_MAX_HEALTH);
-            if (maxHealth == null) {
-                return;
-            }
+        if (!(entity instanceof LivingEntity living)) {
+            return;
+        }
 
-            // If it is shot from player
-            if (projectile.getShooter() instanceof Player player && !entity.isDead()) {
-                // Calculates the correct health after damage
-                var finHealth = living.getHealth() - event.getDamage();
+        var maxHealth = living.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+        if (maxHealth == null) {
+            return;
+        }
 
-                // Make sure dead entities get the correct health
-                if (finHealth < 0) finHealth = 0;
+        if (event.getDamager() instanceof Projectile projectile && projectile.getShooter() instanceof Player shooter && !entity.isDead()) {
+            shooter.sendActionBar(PlayerUtil.getDamageComponent(event, living, maxHealth));
+        }
 
-                // Produces something like "Villager HP <current/max> [-12]
-                final var component = Component.text()
-                        .content(entity.getName())
-                        .color(NamedTextColor.AQUA)
-                        .append(Component.text(" HP").color(NamedTextColor.LIGHT_PURPLE))
-                        .append(Component.text("<").color(NamedTextColor.WHITE))
-                        .append(Component.text(finHealth))
-                        .append(Component.text("/").color(NamedTextColor.RED))
-                        .append(Component.text(maxHealth.getValue()))
-                        .append(Component.text("> [").color(NamedTextColor.WHITE))
-                        .append(Component.text("-").color(NamedTextColor.GRAY))
-                        .append(Component.text(event.getDamage()).color(NamedTextColor.DARK_RED))
-                        .append(Component.text(" ]").color((NamedTextColor.WHITE)))
-                        .build();
-
-                player.sendActionBar(component);
-            }
+        if (event.getDamager() instanceof Player player) {
+            player.sendActionBar(PlayerUtil.getDamageComponent(event, living, maxHealth));
         }
     }
 }
