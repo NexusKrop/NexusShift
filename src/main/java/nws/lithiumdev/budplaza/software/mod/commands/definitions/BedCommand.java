@@ -22,7 +22,7 @@ public class BedCommand implements ICommand {
                                         return;
                                     }
 
-                                    sender.setBedSpawnLocation(sender.getLocation());
+                                    sender.setBedSpawnLocation(sender.getLocation(), true);
                                     sender.sendMessage(Component.translatable("block.minecraft.set_spawn"));
                                 }))
                 )
