@@ -17,7 +17,8 @@ public class BlipCommandA implements ICommand {
     public void register() {
         new CommandAPICommand("blip")
                 .withPermission("budplaza.commands.blip")
-                .withHelp("Blips someone.", "Blips a user in hope that this will grab their attention.")
+                .withHelp(ConfigUtil.getMessage("commands.blip.help_short"),
+                        ConfigUtil.getMessage("commands.blip.help_long"))
                 .withArguments(new PlayerArgument("target"))
                 .executesConsole((sender, args) -> {
                     if (!(args[0] instanceof Player p)) {

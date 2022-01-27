@@ -5,6 +5,7 @@ package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
 import dev.jorel.commandapi.CommandAPICommand;
 import nws.lithiumdev.budplaza.software.mod.Globals;
+import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 
 public class SpawnCommand implements ICommand {
     @Override
@@ -15,7 +16,8 @@ public class SpawnCommand implements ICommand {
                     sender.playSound(Globals.SOUND_EXP_PICKUP);
                 })
                 .withPermission("budplaza.commands.spawn")
-                .withHelp("Teleports you back to the world spawn.", "Warps you back to the spawn point of this world.")
+                .withHelp(ConfigUtil.getMessage("commands.spawn.help_short"),
+                        ConfigUtil.getMessage("commands.spawn.help_long"))
                 .register();
     }
 }

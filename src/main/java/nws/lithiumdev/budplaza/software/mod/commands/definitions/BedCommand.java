@@ -14,6 +14,7 @@ public class BedCommand implements ICommand {
     public void register() {
         new CommandAPICommand("bed")
                 .withPermission("budplaza.commands.bed")
+                .withHelp(ConfigUtil.getMessage("commands.bed.help_short"), ConfigUtil.getMessage("commands.bed.help_long"))
                 .withSubcommand(
                         new CommandAPICommand("here")
                                 .executesPlayer(((sender, args) -> {

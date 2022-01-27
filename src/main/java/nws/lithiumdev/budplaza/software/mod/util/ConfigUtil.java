@@ -42,6 +42,19 @@ public final class ConfigUtil {
         addDefaultMessage("generic.dev.git_repo", "Git Repository");
         addDefaultMessage("ui.broadcast.shot_and_killed", "shot and killed");
         addDefaultMessage("ui.broadcast.killed_melee", "killed");
+
+        // 帮助信息
+        addDefaultMessage("commands.bed.help_short", "Gets or sets the location of your own respawn point.");
+        addDefaultMessage("commands.bed.help_long", "Go to or manipulate your respawn point. Adding \"here\" after the command will set your respawn point.");
+
+        addDefaultMessage("commands.blip.help_short", "Blips someone.");
+        addDefaultMessage("commands.blip.help_long", "Displays a message in chat, and plays a ding to the specified player. Useful if you want to nag someone about some issues.");
+
+        addDefaultMessage("commands.spawn.help_short", "Go to spawn.");
+        addDefaultMessage("commands.spawn.help_long", "Go to the world spawn point.");
+
+        addDefaultMessage("commands.tps.help_short", "Displays the TPS.");
+        addDefaultMessage("commands.tps.help_long", "Displays three recent Ticks Per Second sample in the order of 1min, 5min and 15min.");
     }
 
     private static void addDefaultMessage(@NotNull String groupName, @Nullable String value) {
