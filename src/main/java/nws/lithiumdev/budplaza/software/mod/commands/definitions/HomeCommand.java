@@ -19,7 +19,6 @@ public class HomeCommand implements ICommand {
 
                     if (home == null) {
                         CommandUtil.feedbackFault(sender, ConfigUtil.getMessage(NO_HOME));
-                        return;
                     }
                 })
                 .withPermission("budplaza.commands.home")

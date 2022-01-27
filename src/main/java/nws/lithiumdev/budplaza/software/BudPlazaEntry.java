@@ -9,6 +9,7 @@ import nws.lithiumdev.budplaza.software.mod.events.EventHandlerManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.Contract;
 
 /**
  * Defines the entry point of the plugin.
@@ -22,6 +23,7 @@ public final class BudPlazaEntry extends JavaPlugin {
      * Gets the instance of the current plugin.
      * @return An instance of {@link BudPlazaEntry}.
      */
+    @Contract(pure = true)
     public static BudPlazaEntry getInstance() {
         if (instance == null) {
             throw new IllegalStateException("BudPlaza has not yet been instantiated.");

@@ -15,7 +15,8 @@ public final class CommandManager {
             new SpawnCommand(),
             new BlipCommandA(),
             new VersionCommandA(),
-            new TpsCommand()
+            new TpsCommand(),
+            new BedCommand()
     };
 
     public static void registerAllCommands() {
