@@ -56,7 +56,7 @@ public class EntityEventHandlers implements Listener {
                 p.sendActionBar(Component.text(ConfigUtil.getMessage(MESSAGE_TARGET_ENTITY))
                         .append(Component.text(event.getEntity().getName()).color(NamedTextColor.GRAY)
                                 .decorate(TextDecoration.ITALIC))
-                        .append(Component.text("( KILLED )")
+                        .append(Component.text(" [DEAD]")
                                 .color(NamedTextColor.RED)));
                 Bukkit.getServer().broadcast(MessageUtil.getDeathComponent(event));
             }
@@ -104,13 +104,19 @@ public class EntityEventHandlers implements Listener {
 
             // If it is shot from player
             if (projectile.getShooter() instanceof Player player && !entity.isDead()) {
+                // Calculates the correct health after damage
+                var finHealth = living.getHealth() - event.getDamage();
+
+                // Make sure dead entities get the correct health
+                if (finHealth < 0) finHealth = 0;
+
                 // Produces something like "Villager HP <current/max> [-12]
                 final var component = Component.text()
                         .content(entity.getName())
                         .color(NamedTextColor.AQUA)
                         .append(Component.text(" HP").color(NamedTextColor.LIGHT_PURPLE))
                         .append(Component.text("<").color(NamedTextColor.WHITE))
-                        .append(Component.text(living.getHealth()))
+                        .append(Component.text(finHealth))
                         .append(Component.text("/").color(NamedTextColor.RED))
                         .append(Component.text(maxHealth.getValue()))
                         .append(Component.text("> [").color(NamedTextColor.WHITE))
