@@ -15,10 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.attribute.Attribute;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Mob;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.TNTPrimed;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -36,24 +33,16 @@ public class EntityEventHandlers implements Listener {
     public void onProjectileHit(ProjectileHitEvent event) {
         if (event.getHitEntity() == null || !(event.getEntity().getShooter() instanceof Player p)) return;
 
-        if (event.getHitEntity() instanceof Mob m) {
-            if (m.isDead()) {
+        if (event.getHitEntity() instanceof Mob mob) {
+            if (mob.isDead()) {
                 p.playSound(Sound.sound(Key.key("entity.experience_orb.pickup"), Sound.Source.MASTER, 1f, 1f));
                 p.sendActionBar(Component.text(ConfigUtil.getMessage(MESSAGE_TARGET_ENTITY))
-                        .append(Component.text(m.getName()).color(NamedTextColor.GRAY)
+                        .append(Component.text(mob.getName()).color(NamedTextColor.GRAY)
                                 .decorate(TextDecoration.ITALIC))
-                        .append(Component.text("( KILLED )")
+                        .append(Component.text(" [DEAD]")
                                 .color(NamedTextColor.RED)));
             } else {
                 PlayerUtil.blipPlayer(p);
-                p.sendActionBar(Component.text(ConfigUtil.getMessage(MESSAGE_TARGET_ENTITY))
-                        .append(Component.text(m.getName()).color(NamedTextColor.GOLD))
-                        .append(Component.text("( ")
-                                .color(NamedTextColor.WHITE))
-                        .append(Component.text(Double.toString(m.getHealth()))).color(NamedTextColor.AQUA)
-                        .append(Component.text(" / ").color(NamedTextColor.WHITE))
-                        .append(Component.text(Objects.requireNonNull(m.getAttribute(Attribute.GENERIC_MAX_HEALTH)).getValue()).color(NamedTextColor.RED))
-                        .append(Component.text(" )").color(NamedTextColor.WHITE)));
             }
         }
     }
@@ -100,8 +89,38 @@ public class EntityEventHandlers implements Listener {
 
     @EventHandler
     public void onEntityDamagedByEntity(EntityDamageByEntityEvent event) {
+        var entity = event.getEntity();
+
+        // If melee
         if (event.getDamager() instanceof Player p) {
             p.playSound(Sound.sound(Key.key("item.trident.throw"), Sound.Source.PLAYER, 1f, 1.3f));
+        }
+
+        if (event.getDamager() instanceof Projectile projectile && entity instanceof LivingEntity living) {
+            var maxHealth = living.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+            if (maxHealth == null) {
+                return;
+            }
+
+            // If it is shot from player
+            if (projectile.getShooter() instanceof Player player && !entity.isDead()) {
+                // Produces something like "Villager HP <current/max> [-12]
+                final var component = Component.text()
+                        .content(entity.getName())
+                        .color(NamedTextColor.AQUA)
+                        .append(Component.text(" HP").color(NamedTextColor.LIGHT_PURPLE))
+                        .append(Component.text("<").color(NamedTextColor.WHITE))
+                        .append(Component.text(living.getHealth()))
+                        .append(Component.text("/").color(NamedTextColor.RED))
+                        .append(Component.text(maxHealth.getValue()))
+                        .append(Component.text("> [").color(NamedTextColor.WHITE))
+                        .append(Component.text("-").color(NamedTextColor.GRAY))
+                        .append(Component.text(event.getDamage()).color(NamedTextColor.DARK_RED))
+                        .append(Component.text(" ]").color((NamedTextColor.WHITE)))
+                        .build();
+
+                player.sendActionBar(component);
+            }
         }
     }
 }
