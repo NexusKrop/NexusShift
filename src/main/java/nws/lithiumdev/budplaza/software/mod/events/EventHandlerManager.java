@@ -1,9 +1,9 @@
+// (C) BudPlaza 2021, 2022 All rights reserved.
+// Licensed under GNU Affero GPL, either V3 or any later version.
+
 package nws.lithiumdev.budplaza.software.mod.events;
 
-
-import nws.lithiumdev.budplaza.software.mod.events.handlers.BlockEventHandlers;
-import nws.lithiumdev.budplaza.software.mod.events.handlers.EntityEventHandlers;
-import nws.lithiumdev.budplaza.software.mod.events.handlers.PlayerEventHandlers;
+import nws.lithiumdev.budplaza.software.mod.events.handlers.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.plugin.PluginManager;
