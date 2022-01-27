@@ -39,6 +39,7 @@ public final class PlayerUtil {
     private static final String METADATA_HOME_Y = "home-y";
     private static final String METADATA_HOME_Z = "home-z";
     private static final String METADATA_HOME_DIM = "home-dim";
+    private static final String DOUBLE_FORMAT_HEALTH = "%.2f";
 
     private static final List<String> perfs = new ArrayList<>();
 
@@ -111,12 +112,12 @@ public final class PlayerUtil {
                 .color(NamedTextColor.AQUA)
                 .append(Component.text(" HP").color(NamedTextColor.LIGHT_PURPLE))
                 .append(Component.text("<").color(NamedTextColor.WHITE))
-                .append(Component.text(finHealth))
+                .append(Component.text(String.format(DOUBLE_FORMAT_HEALTH, finHealth)))
                 .append(Component.text("/").color(NamedTextColor.RED))
                 .append(Component.text(maxHealth.getValue()))
                 .append(Component.text("> [").color(NamedTextColor.WHITE))
                 .append(Component.text("-").color(NamedTextColor.GRAY))
-                .append(Component.text(event.getDamage()).color(NamedTextColor.DARK_RED))
+                .append(Component.text(String.format(DOUBLE_FORMAT_HEALTH, event.getDamage())).color(NamedTextColor.DARK_RED))
                 .append(Component.text(" ]").color((NamedTextColor.WHITE)))
                 .build();
     }
