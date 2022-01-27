@@ -23,7 +23,7 @@ public final class Globals {
     public static final Sound SOUND_EXP_PICKUP = Sound.sound(Key.key("entity.expierence_orb.pickuip"), Sound.Source.PLAYER, 1f, 1f);
 
     public static void reloadConfig() {
-        BudPlazaEntry.getInstance().getConfig();
+        configuration = BudPlazaEntry.getInstance().getConfig();
     }
 
     public static void initFileConfiguration(FileConfiguration config) {
