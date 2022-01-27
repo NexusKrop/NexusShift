@@ -40,6 +40,8 @@ public final class ConfigUtil {
         addDefaultMessage("commands.version.license", "Licensed Under: ");
         addDefaultMessage("commands.version.sources.prefix", "Get Sources: ");
         addDefaultMessage("generic.dev.git_repo", "Git Repository");
+        addDefaultMessage("ui.broadcast.shot_and_killed", "shot and killed");
+        addDefaultMessage("ui.broadcast.killed_melee", "melee");
     }
 
     private static void addDefaultMessage(@NotNull String groupName, @Nullable String value) {

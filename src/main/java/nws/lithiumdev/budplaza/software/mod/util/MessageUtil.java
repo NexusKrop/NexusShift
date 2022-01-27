@@ -16,6 +16,9 @@ import java.util.Objects;
 public final class MessageUtil {
     private MessageUtil() {}
 
+    private static final String SHOT_AND_KILLED = "ui.broadcast.shot_and_killed";
+    private static final String KILLED_MELEE = "ui.broadcast.killed_melee";
+
     public static Component getDeathComponent(@NotNull EntityDeathEvent event) {
         if (event.getEntity().getKiller() == null) throw new IllegalArgumentException("Entity was not killed by a player.");
 
@@ -24,9 +27,13 @@ public final class MessageUtil {
 
         Entity victim = event.getEntity();
         if (Objects.requireNonNull(victim.getLastDamageCause()).getCause() == EntityDamageEvent.DamageCause.PROJECTILE) {
-            result = result.append(Component.text("shot and killed").color(NamedTextColor.GRAY));
+            result = result.append(Component.text(" "))
+                    .append(Component.text(ConfigUtil.getMessage(SHOT_AND_KILLED)).color(NamedTextColor.GRAY))
+                    .append(Component.text(" "));
         } else {
-            result = result.append(Component.text("killed").color(NamedTextColor.GRAY));
+            result = result.append(Component.text(" "))
+                    .append(Component.text(ConfigUtil.getMessage(KILLED_MELEE)).color(NamedTextColor.GRAY))
+                    .append(Component.text(" "));
         }
 
         result = result.append(Component.text(victim.getName()).color(NamedTextColor.DARK_AQUA).decorate(TextDecoration.ITALIC));
