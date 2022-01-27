@@ -18,10 +18,7 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.entity.ProjectileHitEvent;
+import org.bukkit.event.entity.*;
 
 import java.util.Objects;
 
@@ -84,6 +81,20 @@ public class EntityEventHandlers implements Listener {
             event.setCancelled(true);
         } catch (Exception ex) {
             logger.error("Error when handling explosion: ", ex);
+        }
+    }
+
+    @EventHandler
+    public void onEntityPickupItem(EntityPickupItemEvent event) {
+        // 判断是否是玩家
+        if (!(event.getEntity() instanceof Player player)) {
+            // 只侦听玩家，其它不算（直接放弃）
+            return;
+        }
+
+        if (PlayerUtil.getSetting(player, "noPickup")) {
+            // 如果玩家设置noPickup，直接取消事件
+            event.setCancelled(true);
         }
     }
 
