@@ -55,6 +55,8 @@ public final class ConfigUtil {
 
         addDefaultMessage("commands.tps.help_short", "Displays the TPS.");
         addDefaultMessage("commands.tps.help_long", "Displays three recent Ticks Per Second sample in the order of 1min, 5min and 15min.");
+
+        addDefaultMessage("commands.rtp.in_vehicle", "请先离开载具。");
     }
 
     private static void addDefaultMessage(@NotNull String groupName, @Nullable String value) {
