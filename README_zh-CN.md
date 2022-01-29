@@ -2,6 +2,7 @@
 
 ![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline-status/budplaza/budplaza-software-paper?logo=gitlab&style=flat-square)
 ![GitLab tag (latest by date)](https://img.shields.io/gitlab/v/tag/budplaza/budplaza-software-paper?style=flat-square)
+![Meercode.io CI Score](https://api.meercode.io/badge/BudPlaza/Paper-ware?type=ci-score&lastDay=14)
 
 本插件实现一些通用的服务器功能，同时提供对部分常见破坏行为进行防御和处理的方法和手段。
 

@@ -2,6 +2,7 @@
 
 ![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline-status/budplaza/budplaza-software-paper?logo=gitlab&style=flat-square)
 ![GitLab tag (latest by date)](https://img.shields.io/gitlab/v/tag/budplaza/budplaza-software-paper?style=flat-square)
+![Meercode.io CI Score](https://api.meercode.io/badge/BudPlaza/Paper-ware?type=ci-score&lastDay=14)
 
 This is the BudPlaza software for Paper, implementing some common stuff.
 It also helps us to fight against Griefing since they are very common in CMP.
