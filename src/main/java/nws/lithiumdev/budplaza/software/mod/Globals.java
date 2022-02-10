@@ -7,8 +7,6 @@ import net.kyori.adventure.key.Key;
 import net.kyori.adventure.sound.Sound;
 import nws.lithiumdev.budplaza.software.BudPlazaEntry;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
-import org.apache.logging.log4j.Logger;
-import org.bukkit.Server;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.text.DecimalFormat;
@@ -20,7 +18,7 @@ public final class Globals {
     public static final DecimalFormat HEALTH_FORMAT = new DecimalFormat("0.00");
     public static final String SOURCES_REPO = "https://gitlab.com/budplaza/budplaza-software-paper/";
 
-    public static final Sound SOUND_EXP_PICKUP = Sound.sound(Key.key("entity.expierence_orb.pickuip"), Sound.Source.PLAYER, 1f, 1f);
+    public static final Sound SOUND_EXP_PICKUP = Sound.sound(Key.key("entity.experience_orb.pickup"), Sound.Source.PLAYER, 1f, 1f);
 
     public static void reloadConfig() {
         configuration = BudPlazaEntry.getInstance().getConfig();
@@ -50,25 +48,4 @@ public final class Globals {
     }
 
     private static FileConfiguration configuration;
-
-    /**
-     * Deprecated. Will be cleaned before release.
-     * @deprecated Please use accessor & initializer.
-     */
-    @Deprecated(since = "1pre-20211223", forRemoval = true)
-    public static final FileConfiguration config = null;
-
-    /**
-     * Deprecated. Will be cleaned before release.
-     * @deprecated Get your own logger via {@link org.apache.logging.log4j.LogManager} instead. This will throw {@link NullPointerException}
-     */
-    @Deprecated(since = "1pre-20211223", forRemoval = true)
-    public static final Logger logger = null;
-
-    /**
-     * Deprecated. Will be cleaned before release.
-     * @deprecated You can easily get server via {@link org.bukkit.Bukkit}.
-     */
-    @Deprecated(since = "1pre-20211223", forRemoval = true)
-    public static final Server server = null;
 }
