@@ -15,7 +15,7 @@ import org.bukkit.Location;
 import java.util.Random;
 
 /**
- * 提供指令 <c>rtp</c> 的实现。
+ * Provides implementation of the <c>rtp</c> command。
  */
 public class RtpCommand implements ICommand {
     private static final Random random = new Random();

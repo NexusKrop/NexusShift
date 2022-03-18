@@ -17,7 +17,7 @@ import java.nio.file.Path;
 import java.util.*;
 
 /**
- * 提供有关消息组的读取、默认化和写入的方法。此类不可继承，并且不可实例化。
+ * Provide the reading and writing of the message configurations.
  */
 public final class Messages {
     private static Properties properties;
@@ -27,13 +27,13 @@ public final class Messages {
 
     @Contract(" -> fail ")
     private Messages() {
-        throw new IllegalStateException("汝可识得此类？汝可认得此类不可实例化？");
+        throw new IllegalStateException("DID YOU KNOW THAT, FOR THIS PARTICULAR THING, IT IS SO THAT NOT TO BE INSTANTIATED.");
     }
 
     /**
-     * 添加一对默认消息。
-     * @param key 消息的标识符。
-     * @param value 消息值。
+     * Adds a default message to the message configuration.
+     * @param key The identifier of the message.
+     * @param value The message text.
      */
     public static void addDefault(@NotNull String key, @NotNull String value) {
         defaults.put(Objects.requireNonNull(key), Objects.requireNonNull(value));
@@ -44,8 +44,8 @@ public final class Messages {
     }
 
     /**
-     * 添加传入的全部默认消息。
-     * @param entries 默认消息集。
+     * Add all messages specified.
+     * @param entries Default message sets.
      */
     public static void addDefaults(Map.Entry<String, String>[] entries) {
         for (var entry : Objects.requireNonNull(entries)) {
@@ -54,44 +54,43 @@ public final class Messages {
     }
 
     /**
-     * 加载消息配置文件。如果不存在，尝试创建新的配置文件，如果失败不再尝试。
-     * @param configPath 欲存储配置文件的目录。
-     * @throws NullArgumentException 如果传入的 configPath 为 {@code null} 即抛出。
-     * @throws IllegalArgumentException 如果传入的 configPath 非目录或不存在即抛出。
+     * Loads the message configuration from a configuration file.
+     * @param configPath The path stores the configuration.
+     * @throws NullArgumentException Thrown if the configPath is {@code null}.
+     * @throws IllegalArgumentException Thrown if configPath does not exist or if it is not a directory.
      */
     public static void loadIn(@NotNull File configPath) {
         if (!Objects.requireNonNull(configPath).isDirectory()) {
             throw new IllegalArgumentException("传入的实参 configPath 非目录");
         }
 
-        // 生成配置文件实例
+        // instantiate
         var config = new File(configPath, "messages.properties");
         if (properties == null) properties = new Properties();
 
         properties.putAll(defaults);
 
         if (config.isDirectory()) {
-            logger.warn("配置文件的位置上是目录。");
+            logger.warn("Configuration is a directory.");
             return;
         }
 
-        // 如果需要创建新的文件
+        // Create new file if necessary
         if (!config.exists()) {
 
-            // 存入默认值
-            logger.info("消息配置文件不存在，正在创建");
+            // Create a default file
+            logger.info("Message configuration file does not exist. Creating a new one.");
 
-            // 试图创建文件
+            // Create
             try {
                 Files.createFile(Path.of(config.getAbsolutePath()));
             } catch (IOException ioe) {
-                logger.error("未能创建消息配置文件：", ioe);
-                // 使用默认消息，不再尝试保存默认消息
+                logger.error("Failed to create default file: ", ioe);
                 return;
             }
 
-            // 若上条未返回
-            // TODO: 建立一个新方法来执行这种任务，并降低复杂度（可建议题）
+            // If not returned
+            // TODO: New method for this
             try (var stream = new FileOutputStream(config)) {
                 properties.store(stream, "DEFAULT");
             } catch (FileNotFoundException fife) {
@@ -100,7 +99,7 @@ public final class Messages {
                 logger.error("IOException: ", ioe);
             }
         } else {
-            // 直接读取
+            // Read
             try (var stream = new FileInputStream(config)) {
                 properties.load(stream);
             } catch (FileNotFoundException fife) {

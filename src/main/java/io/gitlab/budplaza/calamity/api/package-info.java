@@ -4,6 +4,6 @@
  */
 
 /**
- * 提供对 Calamity 插件的安全访问。
+ * Provides safe access to APIs of Calamity plugins.
  */
 package io.gitlab.budplaza.calamity.api;
