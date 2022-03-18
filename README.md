@@ -27,7 +27,7 @@ under `build/libs` folder.
 Drop it into your `plugins` folder.
 
 When cloning, we recommend you to specify `--depth=1` if you do not wish to
-contribute, as this will take less disk space and less time to clone,
+contribute, [as this will take less disk space](https://www.atlassian.com/git/tutorials/big-repositories) and less time to clone,
 compared to cloning the whole history.
 
 ### Commands
