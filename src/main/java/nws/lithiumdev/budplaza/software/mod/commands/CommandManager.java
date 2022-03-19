@@ -18,15 +18,15 @@ public final class CommandManager {
             new BlipCommandA(),
             new VersionCommandA(),
             new TpsCommand(),
-            new BedCommand(),
-            // Calamity,
+            // Calamity
+            new BedCommandV2(),
             new RtpCommand()
     };
 
     /**
      * 注册全部本插件内的指令。
      */
-    public static void registerAllCommands() {
+    public static void RegisterAll() {
         for (var command:
              commands) {
             command.register();

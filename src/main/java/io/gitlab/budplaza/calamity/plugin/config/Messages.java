@@ -5,6 +5,8 @@
 
 package io.gitlab.budplaza.calamity.plugin.config;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.apache.commons.lang.NullArgumentException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,8 +24,9 @@ import java.util.*;
 public final class Messages {
     private static Properties properties;
     private static final Logger logger = LogManager.getLogger("CalamityMessages");
+    private static final MiniMessage miniMessage = MiniMessage.miniMessage();
 
-    private static Map<String, String> defaults = new HashMap<>();
+    private static final Map<String, String> defaults = new HashMap<>();
 
     @Contract(" -> fail ")
     private Messages() {
@@ -35,19 +38,24 @@ public final class Messages {
      * @param key The identifier of the message.
      * @param value The message text.
      */
-    public static void addDefault(@NotNull String key, @NotNull String value) {
+    public static void AddDefault(@NotNull String key, @NotNull String value) {
         defaults.put(Objects.requireNonNull(key), Objects.requireNonNull(value));
     }
 
-    public static String get(@NotNull String key) {
+    public static String Get(@NotNull String key) {
         return (String)properties.get(Objects.requireNonNull(key));
+    }
+
+    public static Component GetMini(@NotNull String key)
+    {
+        return miniMessage.deserialize(Get(key));
     }
 
     /**
      * Add all messages specified.
      * @param entries Default message sets.
      */
-    public static void addDefaults(Map.Entry<String, String>[] entries) {
+    public static void AddDefaults(Map.Entry<String, String>[] entries) {
         for (var entry : Objects.requireNonNull(entries)) {
             defaults.put(entry.getKey(), entry.getValue());
         }
@@ -59,7 +67,7 @@ public final class Messages {
      * @throws NullArgumentException Thrown if the configPath is {@code null}.
      * @throws IllegalArgumentException Thrown if configPath does not exist or if it is not a directory.
      */
-    public static void loadIn(@NotNull File configPath) {
+    public static void LoadIn(@NotNull File configPath) {
         if (!Objects.requireNonNull(configPath).isDirectory()) {
             throw new IllegalArgumentException("传入的实参 configPath 非目录");
         }

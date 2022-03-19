@@ -8,7 +8,6 @@ import nws.lithiumdev.budplaza.software.mod.commands.CommandManager;
 import nws.lithiumdev.budplaza.software.mod.events.EventHandlerManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.Contract;
 
@@ -48,7 +47,7 @@ public final class BudPlazaEntry extends JavaPlugin {
         Globals.initFileConfiguration(cfg);
         this.saveConfig();
 
-        CommandManager.registerAllCommands();
+        CommandManager.RegisterAll();
         EventHandlerManager.registerHandlers(this);
     }
 

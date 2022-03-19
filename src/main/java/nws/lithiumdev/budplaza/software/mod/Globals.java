@@ -27,7 +27,7 @@ public final class Globals {
     public static void initFileConfiguration(FileConfiguration config) {
         if (Globals.configuration == null) {
             Globals.configuration = config;
-            ConfigUtil.initConfig();
+            ConfigUtil.AddDefaultMessages();
 
         } else {
             throw new IllegalStateException("Config was ALREADY set!");
