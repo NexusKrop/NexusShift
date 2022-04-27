@@ -3,10 +3,9 @@
 
 package nws.lithiumdev.budplaza.software.mod;
 
+import io.github.nexuskrop.shift.NexusShift;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.sound.Sound;
-import nws.lithiumdev.budplaza.software.BudPlazaEntry;
-import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.text.DecimalFormat;
@@ -14,20 +13,17 @@ import java.text.DecimalFormat;
 public final class Globals {
     private Globals() {}
 
-    public static final String VERSION = "1.0-SNAPSHOT";
-    public static final DecimalFormat HEALTH_FORMAT = new DecimalFormat("0.00");
     public static final String SOURCES_REPO = "https://gitlab.com/budplaza/budplaza-software-paper/";
 
     public static final Sound SOUND_EXP_PICKUP = Sound.sound(Key.key("entity.experience_orb.pickup"), Sound.Source.PLAYER, 1f, 1f);
 
     public static void reloadConfig() {
-        configuration = BudPlazaEntry.getInstance().getConfig();
+        configuration = NexusShift.getInstance().getConfig();
     }
 
     public static void initFileConfiguration(FileConfiguration config) {
         if (Globals.configuration == null) {
             Globals.configuration = config;
-            ConfigUtil.AddDefaultMessages();
 
         } else {
             throw new IllegalStateException("Config was ALREADY set!");

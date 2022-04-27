@@ -5,6 +5,7 @@ package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.PlayerArgument;
+import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
@@ -17,8 +18,8 @@ public class BlipCommandA implements ICommand {
     public void register() {
         new CommandAPICommand("blip")
                 .withPermission("budplaza.commands.blip")
-                .withHelp(ConfigUtil.getMessage("commands.blip.help_short"),
-                        ConfigUtil.getMessage("commands.blip.help_long"))
+                .withHelp(Messages.Get("commands.blip.help_short"),
+                        Messages.Get("commands.blip.help_long"))
                 .withArguments(new PlayerArgument("target"))
                 .executesConsole((sender, args) -> {
                     if (!(args[0] instanceof Player p)) {
@@ -27,7 +28,7 @@ public class BlipCommandA implements ICommand {
 
                     // Send the actual message
                     p.sendMessage(
-                            Component.text(ConfigUtil.getMessage("commands.blip.from_console"))
+                            Component.text(Messages.Get("commands.blip.from_console"))
                                     .color(NamedTextColor.GRAY)
                                     .decorate(TextDecoration.ITALIC)
                     );
@@ -40,7 +41,7 @@ public class BlipCommandA implements ICommand {
 
                     p.sendMessage(
                             sender.name().append(
-                                    Component.text(ConfigUtil.getMessage("commands.blip.from_player"))
+                                    Component.text(Messages.Get("commands.blip.from_player"))
                                             .color(NamedTextColor.GRAY)
                                             .decorate(TextDecoration.ITALIC)
                             )

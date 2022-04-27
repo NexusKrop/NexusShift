@@ -3,9 +3,9 @@
 
 package nws.lithiumdev.budplaza.software.players;
 
+import io.github.nexuskrop.shift.NexusShift;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import nws.lithiumdev.budplaza.software.BudPlazaEntry;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
@@ -120,12 +120,5 @@ public final class PlayerUtil {
                 .append(Component.text(String.format(DOUBLE_FORMAT_HEALTH, event.getDamage())).color(NamedTextColor.DARK_RED))
                 .append(Component.text(" ]").color((NamedTextColor.WHITE)))
                 .build();
-    }
-
-    public static void setHome(@NotNull Player player, @NotNull Location loc) {
-        player.setMetadata(METADATA_HOME_X, new FixedMetadataValue(BudPlazaEntry.getInstance(), loc.getBlockX()));
-        player.setMetadata(METADATA_HOME_Y, new FixedMetadataValue(BudPlazaEntry.getInstance(), loc.getBlockY()));
-        player.setMetadata(METADATA_HOME_Z, new FixedMetadataValue(BudPlazaEntry.getInstance(), loc.getBlockZ()));
-        player.setMetadata(METADATA_HOME_DIM, new FixedMetadataValue(BudPlazaEntry.getInstance(), loc.getWorld().getName()));
     }
 }

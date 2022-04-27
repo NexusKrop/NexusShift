@@ -5,6 +5,7 @@
 
 package io.github.nexuskrop.shift;
 
+import io.github.nexuskrop.shift.util.init.LoadingUtil;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.commands.CommandManager;
 import nws.lithiumdev.budplaza.software.mod.events.EventHandlerManager;
@@ -38,6 +39,8 @@ public final class NexusShift extends JavaPlugin {
 
         Globals.initFileConfiguration(this.getConfig());
         this.saveConfig();
+
+        LoadingUtil.addDefaultMessages();
 
         CommandManager.RegisterAll();
         EventHandlerManager.registerHandlers(this);

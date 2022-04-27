@@ -32,7 +32,7 @@ public class PlayerEventHandlers implements Listener {
     public void OnPlayerJoined(PlayerJoinEvent event) {
         // Get player and send welcome message
         PlayerUtil.blipPlayer(event.getPlayer());
-        event.getPlayer().sendMessage(ConfigUtil.getComponentMessage("welcome"));
+        event.getPlayer().sendMessage(Messages.Get("ui.welcome"));
     }
 
     @EventHandler

@@ -4,6 +4,7 @@
 package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
 import dev.jorel.commandapi.CommandAPICommand;
+import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import nws.lithiumdev.budplaza.software.mod.util.CommandUtil;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
@@ -18,7 +19,7 @@ public class HomeCommand implements ICommand {
                     var home = PlayerUtil.getHome(sender);
 
                     if (home == null) {
-                        CommandUtil.feedbackFault(sender, ConfigUtil.getMessage(NO_HOME));
+                        CommandUtil.feedbackFault(sender, Messages.Get(NO_HOME));
                     }
                 })
                 .withPermission("budplaza.commands.home")

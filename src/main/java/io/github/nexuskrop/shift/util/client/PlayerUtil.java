@@ -5,6 +5,7 @@
 
 package io.github.nexuskrop.shift.util.client;
 
+import io.github.nexuskrop.shift.NexusShift;
 import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -17,6 +18,7 @@ import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -64,6 +66,15 @@ public final class PlayerUtil {
         var world = Bukkit.getServer().getWorld(dim);
 
         return new Location(world, x, y, z);
+    }
+
+    public static void setHome(@NotNull Player player, @NotNull Location loc) {
+        var plg = NexusShift.getInstance();
+
+        player.setMetadata(METADATA_HOME_X, new FixedMetadataValue(plg, loc.getBlockX()));
+        player.setMetadata(METADATA_HOME_Y, new FixedMetadataValue(plg, loc.getBlockY()));
+        player.setMetadata(METADATA_HOME_Z, new FixedMetadataValue(plg, loc.getBlockZ()));
+        player.setMetadata(METADATA_HOME_DIM, new FixedMetadataValue(plg, loc.getWorld().getName()));
     }
 
     public static Component getDamageComponent(EntityDamageByEntityEvent event, LivingEntity living, AttributeInstance maxHealth) {

@@ -4,22 +4,22 @@
 package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
 import dev.jorel.commandapi.CommandAPICommand;
+import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import nws.lithiumdev.budplaza.software.mod.util.CommandUtil;
-import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 
 public class BedCommand implements ICommand {
     @Override
     public void register() {
         new CommandAPICommand("bed")
                 .withPermission("budplaza.commands.bed")
-                .withHelp(ConfigUtil.getMessage("commands.bed.help_short"), ConfigUtil.getMessage("commands.bed.help_long"))
+                .withHelp(Messages.Get("commands.bed.help_short"), Messages.Get("commands.bed.help_long"))
                 .withSubcommand(
                         new CommandAPICommand("here")
                                 .executesPlayer(((sender, args) -> {
                                     if (sender.getWorld().getBlockAt(sender.getLocation()).isSolid()) {
-                                        CommandUtil.feedbackFault(sender, ConfigUtil.getMessage("commands.bed.stuck"));
+                                        CommandUtil.feedbackFault(sender, Messages.Get("commands.bed.stuck"));
                                         return;
                                     }
 

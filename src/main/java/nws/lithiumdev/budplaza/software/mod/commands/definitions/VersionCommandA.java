@@ -4,16 +4,14 @@
 package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
 import dev.jorel.commandapi.CommandAPICommand;
-import dev.jorel.commandapi.arguments.BooleanArgument;
-import dev.jorel.commandapi.arguments.StringArgument;
 import dev.jorel.commandapi.executors.CommandExecutor;
+import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
-import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 
 public class VersionCommandA implements ICommand {
     @Override
@@ -29,8 +27,8 @@ public class VersionCommandA implements ICommand {
                                     .append(Component.text("GNU AGPL v3 (any later version applicable)")
                                             .clickEvent(ClickEvent.openUrl("https://gitlab.com/budplaza/budplaza-software-paper/-/blob/main/LICENSE")))
                                     .append(Component.newline())
-                                    .append(Component.text(ConfigUtil.getMessage("commands.version.sources.prefix")))
-                                    .append(Component.text(ConfigUtil.getMessage("generic.dev.git_repo"))
+                                    .append(Component.text(Messages.Get("commands.version.sources.prefix")))
+                                    .append(Component.text(Messages.Get("generic.dev.git_repo"))
                                             .clickEvent(ClickEvent.openUrl(Globals.SOURCES_REPO))
                                             .color(NamedTextColor.BLUE)
                                             .decorate(TextDecoration.ITALIC))
@@ -41,9 +39,9 @@ public class VersionCommandA implements ICommand {
                         .withHelp("Reloads config.", "Reloads the configuration file of BudPlaza Software.")
                         .withPermission("budplaza.commands.reload")
                         .executes(((sender, args) -> {
-                            sender.sendMessage(ConfigUtil.getComponentMessage("reloadConfig"));
+                            sender.sendMessage(Messages.Get("commands.reload.reloadConfig"));
                             ConfigUtil.reloadConfig();
-                            sender.sendMessage(ConfigUtil.getComponentMessage("reloadConfigDone"));
+                            sender.sendMessage(Messages.Get("commands.reload.complete"));
                         })))
                 .register();
     }
