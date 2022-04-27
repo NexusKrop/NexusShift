@@ -13,9 +13,12 @@ markComment: >
   in the recent 14 days. If the issue is still inactive after 7 days, it will
   be closed. If you need it to "keep active", ask maintainer to add the
   "keep alive" label.
+  
+only: issues
+exemptMilestones: true
 # Comment to post when closing a stale issue. Set to `false` to disable
 closeComment: >
   This issue has been closed because it has had no recent activity for 7 days
   after been marked as inactive. If you need to reopen this issue, ask the
   maintainer to reopen this; if you need it to "keep active", ask maintainer
-  to add the "keep alive" label.
+  to add the "keep alive" label. Do not duplicate issues.
