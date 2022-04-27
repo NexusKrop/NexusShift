@@ -61,6 +61,7 @@ public final class ConfigUtil {
         AddDefaultMessage("commands.tps.help_long", "Displays three recent Ticks Per Second sample in the order of 1min, 5min and 15min.");
 
         AddDefaultMessage("commands.rtp.in_vehicle", "请先离开载具。");
+        AddDefaultMessage("ui.hit_indicator", "<green><health></green>/<red><maxHealth></red> HP [<gold>-<damage><gray>]");
     }
 
     private static void AddDefaultMessage(@NotNull String groupName, @Nullable String value) {
@@ -68,10 +69,24 @@ public final class ConfigUtil {
         Globals.addDefaultConfig("messageGroups." + groupName, value);
     }
 
+    /**
+     * Gets a message string.
+     * @param groupName The group name for message string.
+     * @return The message string.
+     * @deprecated Use {@link Messages} methods instead!
+     */
+    @Deprecated(since = "2022.4.27", forRemoval = true)
     public static String getMessage(String groupName) {
         return Globals.getConfiguration().getString("messageGroups." + groupName);
     }
 
+    /**
+     * Gets a message component.
+     * @param groupName The group name for message component.
+     * @return The message component.
+     * @deprecated Use {@link Messages} methods instead!
+     */
+    @Deprecated(since = "2022.4.27", forRemoval = true)
     public static Component getComponentMessage(String groupName) {
         return parsed.computeIfAbsent(groupName, v -> GsonComponentSerializer.gson().deserialize(getMessage(groupName)));
     }

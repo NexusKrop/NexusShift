@@ -24,8 +24,10 @@ public final class BudPlazaEntry extends JavaPlugin {
     /**
      * Gets the instance of the current plugin.
      * @return An instance of {@link BudPlazaEntry}.
+     * @deprecated This will break your code. Migrate to {@link io.github.nexuskrop.shift.NexusShift} ASAP.
      */
     @Contract(pure = true)
+    @Deprecated(since = "2022.04.27", forRemoval = true)
     public static BudPlazaEntry getInstance() {
         if (instance == null) {
             throw new IllegalStateException("BudPlaza has not yet been instantiated.");
