@@ -13,7 +13,9 @@ import org.jetbrains.annotations.Contract;
 
 /**
  * Defines the entry point of the plugin.
+ * @deprecated Use {@link io.github.nexuskrop.shift.NexusShift} instead.
  */
+@Deprecated(since = "2022.04.27", forRemoval = true)
 public final class BudPlazaEntry extends JavaPlugin {
 
     private static BudPlazaEntry instance;

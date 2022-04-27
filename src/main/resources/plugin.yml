@@ -1,8 +1,8 @@
-name: BudPlaza-Software
+name: NexusShift
 version: '${version}'
-main: nws.lithiumdev.budplaza.software.BudPlazaEntry
+main: io.github.nexuskrop.shift.NexusShift
 api-version: 1.18
-prefix: BP-Software
+prefix: NexusShift
 authors: [ WithLithum ]
-description: BudPlaza Service
+description: A plugin for our own use
 loadbefore: [CommandAPI]
