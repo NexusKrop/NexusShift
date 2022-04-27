@@ -3,6 +3,11 @@ plugins {
     id 'java'
 }
 
+// Fix GBK
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
 group = 'nws.lithiumdev.budplaza'
 version = 'mc1.18.1-rev1-pre'
 

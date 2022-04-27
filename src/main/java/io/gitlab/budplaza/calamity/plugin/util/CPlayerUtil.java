@@ -12,9 +12,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public final class PlayerUtil
+public final class CPlayerUtil
 {
-    private PlayerUtil()
+    private CPlayerUtil()
     {
         throw new IllegalStateException("# Supernatural Mobs, we are undefeatable");
     }

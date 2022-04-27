@@ -21,7 +21,7 @@ import java.util.Objects;
 public final class ApiFunctions {
     @Contract(value = " -> fail", pure = true)
     private ApiFunctions() {
-        throw new IllegalStateException("爬");
+        throw new IllegalStateException("BUZZ OFF");
     }
 
     /**
