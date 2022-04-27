@@ -1,23 +1,13 @@
 # PaperWare
 
-![Gitlab pipeline status](https://img.shields.io/gitlab/pipeline-status/budplaza/budplaza-software-paper?logo=gitlab&style=flat-square)
-![GitLab tag (latest by date)](https://img.shields.io/gitlab/v/tag/budplaza/budplaza-software-paper?style=flat-square)
-![Meercode.io CI Score](https://api.meercode.io/badge/BudPlaza/Paper-ware?type=ci-score&lastDay=14)
-
-This is the BudPlaza software for Paper, implementing some common stuff.
-It also helps us to fight against Griefing since they are very common in CMP.
-
-Please note that only this plugin is not sufficient to stop griefs. To better
-stop griefs, or to deal with them, use other plugins that we recommend, such as
-CoreProtect and WorldGuard.
-
-README in Simplified Chinese is available [here](README_zh-CN.md).
+NexusShift is the Paper plugin tailored for our own use.
 
 ## Usage
 
 ### Dependencies
 
-- PaperMC Server (Spigot or Bukkit _does not work_)
+- PaperMC Server (Spigot or Bukkit _does not work_ due to we referencing directly against Paper API)
+  - This includes Kyori Adventure and we use all that now
 - CommandAPI
 
 ### Building from Source
