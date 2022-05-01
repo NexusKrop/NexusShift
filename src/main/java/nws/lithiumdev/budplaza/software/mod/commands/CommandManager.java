@@ -3,8 +3,9 @@
 
 package nws.lithiumdev.budplaza.software.mod.commands;
 
+import io.github.nexuskrop.shift.commands.BedCommandV2;
+import io.github.nexuskrop.shift.commands.RtpCommand;
 import nws.lithiumdev.budplaza.software.mod.commands.definitions.*;
-import io.gitlab.budplaza.calamity.plugin.commands.*;
 
 public final class CommandManager {
     private CommandManager() {}

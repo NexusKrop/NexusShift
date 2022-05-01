@@ -5,7 +5,7 @@
 
 package io.github.nexuskrop.shift.util.init;
 
-import io.gitlab.budplaza.calamity.plugin.config.Messages;
+import io.github.nexuskrop.shift.ui.Messages;
 
 public final class LoadingUtil {
     private LoadingUtil() {

@@ -3,13 +3,16 @@
  * Licensed under GNU Affero GPL, either V3 or any later version.
  */
 
-package io.gitlab.budplaza.calamity.plugin.commands;
+/*
+ * Copyright (c) 2022. All rights reserved.
+ * Licensed under GNU Affero GPL, either V3 or any later version.
+ */
+
+package io.github.nexuskrop.shift.commands;
 
 import dev.jorel.commandapi.CommandAPICommand;
-import io.gitlab.budplaza.calamity.plugin.config.Messages;
+import io.github.nexuskrop.shift.ui.Messages;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import nws.lithiumdev.budplaza.software.mod.commands.definitions.ICommand;
 import org.bukkit.Location;
 

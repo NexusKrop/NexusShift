@@ -6,7 +6,7 @@
 package io.github.nexuskrop.shift;
 
 import io.github.nexuskrop.shift.util.init.LoadingUtil;
-import io.gitlab.budplaza.calamity.plugin.config.Messages;
+import io.github.nexuskrop.shift.ui.Messages;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.commands.CommandManager;
 import nws.lithiumdev.budplaza.software.mod.events.EventHandlerManager;

@@ -5,7 +5,7 @@ package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.executors.CommandExecutor;
-import io.gitlab.budplaza.calamity.plugin.config.Messages;
+import io.github.nexuskrop.shift.ui.Messages;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;

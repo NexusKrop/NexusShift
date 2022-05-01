@@ -3,7 +3,7 @@
 
 package nws.lithiumdev.budplaza.software.mod.events.handlers;
 
-import io.gitlab.budplaza.calamity.plugin.config.Messages;
+import io.github.nexuskrop.shift.ui.Messages;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.sound.Sound;

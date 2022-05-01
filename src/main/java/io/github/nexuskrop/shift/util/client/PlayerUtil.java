@@ -6,7 +6,7 @@
 package io.github.nexuskrop.shift.util.client;
 
 import io.github.nexuskrop.shift.NexusShift;
-import io.gitlab.budplaza.calamity.plugin.config.Messages;
+import io.github.nexuskrop.shift.ui.Messages;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;

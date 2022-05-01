@@ -3,7 +3,7 @@
 
 package nws.lithiumdev.budplaza.software.mod.events.handlers;
 
-import io.gitlab.budplaza.calamity.plugin.config.Messages;
+import io.github.nexuskrop.shift.ui.Messages;
 import io.papermc.paper.event.block.TargetHitEvent;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;

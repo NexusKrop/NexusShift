@@ -3,7 +3,7 @@
  * Licensed under GNU Affero GPL, either V3 or any later version.
  */
 
-package io.gitlab.budplaza.calamity.plugin.config;
+package io.github.nexuskrop.shift.ui;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
