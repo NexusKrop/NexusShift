@@ -59,5 +59,6 @@ public final class LoadingUtil {
         Messages.AddDefault("ui.hit_indicator", "<green><health></green>/<red><maxHealth></red> HP [<gold>-<damage><gray>]");
         Messages.AddDefault("ui.death_indicator", "Target <gray><target></gray> [<red>DEAD</red>]");
         Messages.AddDefault("ui.death_broadcast", "<red><prep></red> <gray><means></gray> <green><victim></green>");
+        Messages.AddDefault("ui.target_block_indicator", "<gold>Target</gold>: <aqua><strength></aqua>/<green><max></green>");
     }
 }

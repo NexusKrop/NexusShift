@@ -5,9 +5,8 @@ package nws.lithiumdev.budplaza.software.mod.events.handlers;
 
 import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import io.papermc.paper.event.block.TargetHitEvent;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
-import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
+import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,12 +30,9 @@ public class BlockEventHandlers implements Listener {
             ProjectileSource projectileOwner = event.getEntity().getShooter();
             if (projectileOwner instanceof Player p) {
                 PlayerUtil.blipPlayer(p);
-                // TODO port to MiniMessage
-                p.sendActionBar(Component.text(Messages.Get("target_block_summary") + ": ")
-                        .color(NamedTextColor.GOLD)
-                        .append(Component.text(event.getSignalStrength()).color(NamedTextColor.AQUA))
-                        .append(Component.text("/").color(NamedTextColor.WHITE))
-                        .append(Component.text("15").color(NamedTextColor.GREEN)));
+                p.sendActionBar(MiniMessage.miniMessage().deserialize(Messages.Get("ui.target_block_indicator"),
+                        Placeholder.unparsed("strength", Integer.toString(event.getSignalStrength())),
+                        Placeholder.unparsed("max", "15")));
             }
         } catch (Exception ex) {
             logger.error("Exception caught when processing onTargetHit: ", ex);
