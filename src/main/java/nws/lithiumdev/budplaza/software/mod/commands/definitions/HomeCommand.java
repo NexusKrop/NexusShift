@@ -6,7 +6,6 @@ package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 import dev.jorel.commandapi.CommandAPICommand;
 import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import nws.lithiumdev.budplaza.software.mod.util.CommandUtil;
-import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 
 public class HomeCommand implements ICommand {

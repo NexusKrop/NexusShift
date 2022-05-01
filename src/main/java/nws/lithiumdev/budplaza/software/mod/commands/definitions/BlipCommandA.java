@@ -10,7 +10,6 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import nws.lithiumdev.budplaza.software.mod.Globals;
-import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import org.bukkit.entity.Player;
 
 public class BlipCommandA implements ICommand {
