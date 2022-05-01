@@ -34,6 +34,8 @@ public final class LoadingUtil {
         Messages.addDefault("ui.broadcast.killed_melee", "killed");
 
         // Commands
+        Messages.addDefault("commands.generic.no_such_entity", "<red>No such entity.");
+        Messages.addDefault("commands.generic.requires_entity", "<red>You does not look like an entity.");
         Messages.addDefault("commands.blip.from_console", "<gray><italic>Console operator wants your attention.");
         Messages.addDefault("commands.blip.from_player", " <from><gray><italic> wants your attention.");
         Messages.addDefault("commands.perf.no_such_perf", "No such preference.");

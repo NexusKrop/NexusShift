@@ -4,6 +4,8 @@
 package nws.lithiumdev.budplaza.software.mod.commands;
 
 import io.github.nexuskrop.shift.commands.*;
+import io.github.nexuskrop.shift.commands.engine.INativeCommand;
+import io.github.nexuskrop.shift.util.Common;
 import nws.lithiumdev.budplaza.software.mod.commands.definitions.*;
 
 public final class CommandManager {
@@ -17,9 +19,11 @@ public final class CommandManager {
             new SpawnCommand(),
             new BlipCommandV2(),
             new VersionCommandA(),
-            new TpsCommand(),
-            // Calamity
-            new BedCommandV2(),
+            new TpsCommand()
+    };
+
+    private static final INativeCommand[] nativeCommands = {
+            new RespawnCommand(),
             new RtpCommand()
     };
 
@@ -30,6 +34,12 @@ public final class CommandManager {
         for (var command:
              commands) {
             command.register();
+        }
+
+        var dispatcher = Common.getVanillaServer().vanillaCommandDispatcher.getDispatcher();
+
+        for (var nativeCmd: nativeCommands) {
+            nativeCmd.register(dispatcher);
         }
     }
 }

@@ -10,9 +10,17 @@
 
 package io.github.nexuskrop.shift.commands;
 
+import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import dev.jorel.commandapi.CommandAPICommand;
+import io.github.nexuskrop.shift.commands.engine.INativeCommand;
 import io.github.nexuskrop.shift.ui.Messages;
-import net.kyori.adventure.text.Component;
+import io.github.nexuskrop.shift.ui.NativeComponentSerializer;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
+import net.minecraft.network.chat.Component;
 import nws.lithiumdev.budplaza.software.mod.commands.definitions.ICommand;
 import org.bukkit.Location;
 
@@ -21,36 +29,41 @@ import java.util.Random;
 /**
  * Provides implementation of the <c>rtp</c> command。
  */
-public class RtpCommand implements ICommand {
+public class RtpCommand implements INativeCommand {
     private static final Random random = new Random();
-    private final Component leaveVehicleWarning = Messages.getParsed("commands.rtp.in_vehicle");
+    private final Component leaveVehicleWarning = NativeComponentSerializer.nativeComponentSerializer()
+            .serialize(Messages.getParsed("commands.rtp.in_vehicle"));
 
     @Override
-    public void register() {
-        new CommandAPICommand("rtp")
-                .withPermission("calamity.commands.rtp")
-                .withHelp("随机传送。", "随机传送执行者至世界的任何地方。如果执行时正在骑乘载具则失败。")
-                .executesEntity(((sender, args) -> {
-                    if (sender.isInsideVehicle()) {
-                        // 执行失败
-                        sender.sendMessage(leaveVehicleWarning);
-                        return -1;
-                    }
+    public void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+        dispatcher.register(Commands.literal("rtp")
+                .requires(source -> source.getEntity() != null)
+                .executes(this::run));
+    }
 
-                    var orig = sender.getLocation();
+    private int run(CommandContext<CommandSourceStack> context) {
+        var entity = context.getSource().getEntity();
 
-                    // 取原位置
-                    var x = orig.getX() + random.nextDouble(-1230, 1230.5);
-                    var z = orig.getZ() + random.nextDouble(-1230, 1230.1);
+        // Thrown if not entity
+        if (entity == null) {
+            context.getSource().sendFailure(REQUIRES_ENTITY_MESSAGE);
+            return 0;
+        }
 
-                    // 取该二维坐标处最高可站方块
-                    var y = sender.getWorld().getHighestBlockYAt((int)x, (int)z);
+        // Thrown if sitting in anything
+        if (entity.isPassenger()) {
+            context.getSource().sendFailure(leaveVehicleWarning);
+            return 0;
+        }
 
-                    // 合成Location，传送
-                    var loc = new Location(sender.getWorld(), x, y, z);
-                    sender.teleport(loc);
-                    return 0;
-                }))
-                .register();
+        // Get a random location based on entity current location
+        var x = entity.getX() + random.nextDouble(-1230, 1230.5);
+        var z = entity.getZ() + random.nextDouble(-1230, 1230.1);
+
+        // Get the highest block at that location and teleport
+        var y = context.getSource().getLevel().getWorld().getHighestBlockYAt((int) x, (int) z);
+        entity.teleportTo(x, y, z);
+
+        return 1;
     }
 }
