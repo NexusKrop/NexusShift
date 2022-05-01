@@ -42,7 +42,7 @@ public final class NexusShift extends JavaPlugin {
 
         LoadingUtil.addDefaultMessages();
 
-        CommandManager.RegisterAll();
+        CommandManager.registerAll();
         EventHandlerManager.registerHandlers(this);
     }
 }

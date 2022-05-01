@@ -43,7 +43,6 @@ public final class BudPlazaEntry extends JavaPlugin {
     public void onEnable() {
         // I'll have to leave it here: (if you have S2696)
         // A lot of things needs the BudPlaza instance.
-        instance = this;
         // Plugin startup logic
         budLog.info("BUDPLAZA START");
         var cfg = this.getConfig();
@@ -51,7 +50,7 @@ public final class BudPlazaEntry extends JavaPlugin {
         Globals.initFileConfiguration(cfg);
         this.saveConfig();
 
-        CommandManager.RegisterAll();
+        CommandManager.registerAll();
         EventHandlerManager.registerHandlers(this);
     }
 

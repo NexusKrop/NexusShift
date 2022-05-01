@@ -26,7 +26,7 @@ public final class CommandManager {
     /**
      * 注册全部本插件内的指令。
      */
-    public static void RegisterAll() {
+    public static void registerAll() {
         for (var command:
              commands) {
             command.register();
