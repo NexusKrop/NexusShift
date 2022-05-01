@@ -3,6 +3,7 @@
 
 package nws.lithiumdev.budplaza.software.mod.events.handlers;
 
+import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import io.papermc.paper.event.block.TargetHitEvent;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -30,7 +31,8 @@ public class BlockEventHandlers implements Listener {
             ProjectileSource projectileOwner = event.getEntity().getShooter();
             if (projectileOwner instanceof Player p) {
                 PlayerUtil.blipPlayer(p);
-                p.sendActionBar(Component.text(ConfigUtil.getMessage("target_block_summary") + ": ")
+                // TODO port to MiniMessage
+                p.sendActionBar(Component.text(Messages.Get("target_block_summary") + ": ")
                         .color(NamedTextColor.GOLD)
                         .append(Component.text(event.getSignalStrength()).color(NamedTextColor.AQUA))
                         .append(Component.text("/").color(NamedTextColor.WHITE))
