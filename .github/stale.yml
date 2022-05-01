@@ -1,0 +1,24 @@
+# Number of days of inactivity before an issue becomes stale
+daysUntilStale: 14
+# Number of days of inactivity before a stale issue is closed
+daysUntilClose: 7
+# Issues with these labels will never be considered stale
+exemptLabels:
+  - keep alive
+# Label to use when marking an issue as stale
+staleLabel: inactive
+# Comment to post when marking an issue as stale. Set to `false` to disable
+markComment: >
+  This issue has been marked as inactive because it has had no recent activity
+  in the recent 14 days. If the issue is still inactive after 7 days, it will
+  be closed. If you need it to "keep active", ask maintainer to add the
+  "keep alive" label.
+  
+only: issues
+exemptMilestones: true
+# Comment to post when closing a stale issue. Set to `false` to disable
+closeComment: >
+  This issue has been closed because it has had no recent activity for 7 days
+  after been marked as inactive. If you need to reopen this issue, ask the
+  maintainer to reopen this; if you need it to "keep active", ask maintainer
+  to add the "keep alive" label. Do not duplicate issues.
