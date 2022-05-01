@@ -3,14 +3,11 @@
 
 package nws.lithiumdev.budplaza.software.mod.events.handlers;
 
+import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
-import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.sound.Sound;
-import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
-import nws.lithiumdev.budplaza.software.mod.util.MessageUtil;
-import nws.lithiumdev.budplaza.software.players.PlayerUtil;
+import io.github.nexuskrop.shift.util.client.PlayerUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bukkit.Bukkit;
@@ -20,11 +17,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.*;
 
-import java.util.Objects;
-
 public class EntityEventHandlers implements Listener {
     private static final Logger logger = LogManager.getLogger("BP-EntityEvents");
-    public static final String MESSAGE_TARGET_ENTITY = "ui.target.entity";
 
     @EventHandler
     public void onProjectileHit(ProjectileHitEvent event) {
@@ -33,11 +27,7 @@ public class EntityEventHandlers implements Listener {
         if (event.getHitEntity() instanceof Mob mob) {
             if (mob.isDead()) {
                 p.playSound(Sound.sound(Key.key("entity.experience_orb.pickup"), Sound.Source.MASTER, 1f, 1f));
-                p.sendActionBar(Component.text(ConfigUtil.getMessage(MESSAGE_TARGET_ENTITY))
-                        .append(Component.text(mob.getName()).color(NamedTextColor.GRAY)
-                                .decorate(TextDecoration.ITALIC))
-                        .append(Component.text(" [DEAD]")
-                                .color(NamedTextColor.RED)));
+                p.sendActionBar(PlayerUtil.getDeathComponent(event));
             } else {
                 PlayerUtil.blipPlayer(p);
             }
@@ -50,12 +40,11 @@ public class EntityEventHandlers implements Listener {
             if (event.getEntity().getKiller() != null) {
                 Player p = event.getEntity().getKiller();
                 p.playSound(Sound.sound(Key.key("ui.loom.select_pattern"), Sound.Source.PLAYER, 10, 0.5f));
-                p.sendActionBar(Component.text(ConfigUtil.getMessage(MESSAGE_TARGET_ENTITY))
-                        .append(Component.text(event.getEntity().getName()).color(NamedTextColor.GRAY)
-                                .decorate(TextDecoration.ITALIC))
-                        .append(Component.text(" [DEAD]")
-                                .color(NamedTextColor.RED)));
-                Bukkit.getServer().broadcast(MessageUtil.getDeathComponent(event));
+                p.sendActionBar(PlayerUtil.getDeathComponent(event));
+                Bukkit.getServer().broadcast(PlayerUtil.getDeathBroadcastComponent(p.name(),
+                        event.getEntity().name(),
+                        Component.text(Messages.Get("ui.broadcast.killed_melee"))
+                        ));
             }
         } catch (Exception ex) {
             logger.error("Error when handling entity death: ", ex);

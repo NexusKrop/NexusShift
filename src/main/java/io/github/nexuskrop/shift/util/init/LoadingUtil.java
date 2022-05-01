@@ -57,5 +57,7 @@ public final class LoadingUtil {
 
         Messages.AddDefault("commands.rtp.in_vehicle", "请先离开载具。");
         Messages.AddDefault("ui.hit_indicator", "<green><health></green>/<red><maxHealth></red> HP [<gold>-<damage><gray>]");
+        Messages.AddDefault("ui.death_indicator", "Target <gray><target></gray> [<red>DEAD</red>]");
+        Messages.AddDefault("ui.death_broadcast", "<red><prep></red> <gray><means></gray> <green><victim></green>");
     }
 }
