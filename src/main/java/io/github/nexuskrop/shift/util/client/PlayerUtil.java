@@ -14,6 +14,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.attribute.AttributeInstance;
+import org.bukkit.craftbukkit.v1_18_R2.entity.CraftPlayer;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -87,6 +88,19 @@ public final class PlayerUtil {
                 Placeholder.component("prep", killer),
                 Placeholder.component("victim", victim),
                 Placeholder.component("means", means));
+    }
+
+    /**
+     * Converts a bukkit {@link Player} to a vanilla {@link net.minecraft.world.entity.player.Player}.
+     * @param player The player to convert from.
+     * @return The vanilla player.
+     */
+    public static net.minecraft.world.entity.player.Player toMinecraftPlayer(Player player) {
+        if (!(Objects.requireNonNull(player) instanceof CraftPlayer cp)) {
+            throw new IllegalArgumentException("Player is not CraftPlayer.");
+        }
+
+        return cp.getHandle();
     }
 
     public static Component getDamageComponent(EntityDamageByEntityEvent event, LivingEntity living, AttributeInstance maxHealth) {
