@@ -18,7 +18,7 @@ public class HomeCommand implements ICommand {
                     var home = PlayerUtil.getHome(sender);
 
                     if (home == null) {
-                        CommandUtil.feedbackFault(sender, Messages.Get(NO_HOME));
+                        CommandUtil.feedbackFault(sender, Messages.get(NO_HOME));
                     }
                 })
                 .withPermission("budplaza.commands.home")

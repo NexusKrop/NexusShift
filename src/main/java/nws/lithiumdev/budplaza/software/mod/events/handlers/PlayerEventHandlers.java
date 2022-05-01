@@ -7,19 +7,13 @@ package nws.lithiumdev.budplaza.software.mod.events.handlers;
 // any method for comparison.
 import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import io.gitlab.budplaza.calamity.plugin.util.CPlayerUtil;
-import io.papermc.paper.event.player.AsyncChatEvent;
-import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import java.time.LocalDateTime;
-import java.time.temporal.TemporalField;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -32,7 +26,7 @@ public class PlayerEventHandlers implements Listener {
     public void OnPlayerJoined(PlayerJoinEvent event) {
         // Get player and send welcome message
         PlayerUtil.blipPlayer(event.getPlayer());
-        event.getPlayer().sendMessage(Messages.Get("ui.welcome"));
+        event.getPlayer().sendMessage(Messages.get("ui.welcome"));
     }
 
     @EventHandler
@@ -50,7 +44,7 @@ public class PlayerEventHandlers implements Listener {
         if (mentionCoolDown.containsKey(playerId)
             && System.currentTimeMillis() - mentionCoolDown.get(playerId) > 25000)
         {
-            chatEvent.getPlayer().sendMessage(Messages.Get("chat.mention.cool"));
+            chatEvent.getPlayer().sendMessage(Messages.get("chat.mention.cool"));
             chatEvent.setCancelled(true);
             return;
         }

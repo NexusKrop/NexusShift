@@ -17,8 +17,8 @@ public class BlipCommandA implements ICommand {
     public void register() {
         new CommandAPICommand("blip")
                 .withPermission("budplaza.commands.blip")
-                .withHelp(Messages.Get("commands.blip.help_short"),
-                        Messages.Get("commands.blip.help_long"))
+                .withHelp(Messages.get("commands.blip.help_short"),
+                        Messages.get("commands.blip.help_long"))
                 .withArguments(new PlayerArgument("target"))
                 .executesConsole((sender, args) -> {
                     if (!(args[0] instanceof Player p)) {
@@ -27,7 +27,7 @@ public class BlipCommandA implements ICommand {
 
                     // Send the actual message
                     p.sendMessage(
-                            Component.text(Messages.Get("commands.blip.from_console"))
+                            Component.text(Messages.get("commands.blip.from_console"))
                                     .color(NamedTextColor.GRAY)
                                     .decorate(TextDecoration.ITALIC)
                     );
@@ -40,7 +40,7 @@ public class BlipCommandA implements ICommand {
 
                     p.sendMessage(
                             sender.name().append(
-                                    Component.text(Messages.Get("commands.blip.from_player"))
+                                    Component.text(Messages.get("commands.blip.from_player"))
                                             .color(NamedTextColor.GRAY)
                                             .decorate(TextDecoration.ITALIC)
                             )

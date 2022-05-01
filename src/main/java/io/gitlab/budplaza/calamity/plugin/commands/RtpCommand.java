@@ -10,7 +10,6 @@ import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import nws.lithiumdev.budplaza.software.mod.commands.definitions.ICommand;
-import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import org.bukkit.Location;
 
 import java.util.Random;
@@ -30,7 +29,7 @@ public class RtpCommand implements ICommand {
                 .executesEntity(((sender, args) -> {
                     if (sender.isInsideVehicle()) {
                         // 执行失败
-                        sender.sendMessage(Component.text(Messages.Get(IN_VEHICLE)).color(NamedTextColor.RED));
+                        sender.sendMessage(Component.text(Messages.get(IN_VEHICLE)).color(NamedTextColor.RED));
                         return -1;
                     }
 

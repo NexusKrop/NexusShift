@@ -38,24 +38,24 @@ public final class Messages {
      * @param key The identifier of the message.
      * @param value The message text.
      */
-    public static void AddDefault(@NotNull String key, @NotNull String value) {
+    public static void addDefault(@NotNull String key, @NotNull String value) {
         defaults.put(Objects.requireNonNull(key), Objects.requireNonNull(value));
     }
 
-    public static String Get(@NotNull String key) {
+    public static String get(@NotNull String key) {
         return (String)properties.get(Objects.requireNonNull(key));
     }
 
-    public static Component GetMini(@NotNull String key)
+    public static Component getParsed(@NotNull String key)
     {
-        return miniMessage.deserialize(Get(key));
+        return miniMessage.deserialize(get(key));
     }
 
     /**
      * Add all messages specified.
      * @param entries Default message sets.
      */
-    public static void AddDefaults(Map.Entry<String, String>[] entries) {
+    public static void addDefaults(Map.Entry<String, String>[] entries) {
         for (var entry : Objects.requireNonNull(entries)) {
             defaults.put(entry.getKey(), entry.getValue());
         }
@@ -67,7 +67,7 @@ public final class Messages {
      * @throws NullArgumentException Thrown if the configPath is {@code null}.
      * @throws IllegalArgumentException Thrown if configPath does not exist or if it is not a directory.
      */
-    public static void LoadIn(@NotNull File configPath) {
+    public static void loadMessages(@NotNull File configPath) {
         if (!Objects.requireNonNull(configPath).isDirectory()) {
             throw new IllegalArgumentException("传入的实参 configPath 非目录");
         }

@@ -8,7 +8,6 @@ package io.github.nexuskrop.shift.util.client;
 import io.github.nexuskrop.shift.NexusShift;
 import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
 import org.bukkit.Bukkit;
@@ -18,7 +17,6 @@ import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.jetbrains.annotations.NotNull;
@@ -80,12 +78,12 @@ public final class PlayerUtil {
     }
 
     public static Component getDeathComponent(EntityEvent event) {
-        return MiniMessage.miniMessage().deserialize(Messages.Get("ui.death_indicator"),
+        return MiniMessage.miniMessage().deserialize(Messages.get("ui.death_indicator"),
                 Placeholder.component("target", event.getEntity().name()));
     }
 
     public static Component getDeathBroadcastComponent(Component killer, Component victim, Component means) {
-        return MiniMessage.miniMessage().deserialize(Messages.Get("ui.death_broadcast"),
+        return MiniMessage.miniMessage().deserialize(Messages.get("ui.death_broadcast"),
                 Placeholder.component("prep", killer),
                 Placeholder.component("victim", victim),
                 Placeholder.component("means", means));
@@ -103,7 +101,7 @@ public final class PlayerUtil {
         if (finHealth < 0) finHealth = 0;
 
         return MiniMessage.miniMessage()
-                .deserialize(Messages.Get("ui.hit_indicator"),
+                .deserialize(Messages.get("ui.hit_indicator"),
                         Placeholder.component("target", living.name()),
                         Placeholder.unparsed("damage", String.format(DOUBLE_FORMAT_HEALTH, event.getDamage())),
                         Placeholder.unparsed("health", String.format(DOUBLE_FORMAT_HEALTH, finHealth)),

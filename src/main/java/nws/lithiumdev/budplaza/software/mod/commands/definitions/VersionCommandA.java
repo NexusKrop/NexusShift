@@ -12,7 +12,7 @@ import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 
 public class VersionCommandA implements ICommand {
     private final Component creditsComponent = MiniMessage.miniMessage().deserialize(
-            Messages.Get("ui.copyright")
+            Messages.get("ui.copyright")
     );
 
     @Override
@@ -25,9 +25,9 @@ public class VersionCommandA implements ICommand {
                         .withHelp("Reloads config.", "Reloads the configuration file of BudPlaza Software.")
                         .withPermission("budplaza.commands.reload")
                         .executes(((sender, args) -> {
-                            sender.sendMessage(Messages.Get("commands.reload.reloadConfig"));
+                            sender.sendMessage(Messages.get("commands.reload.reloadConfig"));
                             ConfigUtil.reloadConfig();
-                            sender.sendMessage(Messages.Get("commands.reload.complete"));
+                            sender.sendMessage(Messages.get("commands.reload.complete"));
                         })))
                 .register();
     }

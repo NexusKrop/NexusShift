@@ -43,7 +43,7 @@ public class EntityEventHandlers implements Listener {
                 p.sendActionBar(PlayerUtil.getDeathComponent(event));
                 Bukkit.getServer().broadcast(PlayerUtil.getDeathBroadcastComponent(p.name(),
                         event.getEntity().name(),
-                        Component.text(Messages.Get("ui.broadcast.killed_melee"))
+                        Component.text(Messages.get("ui.broadcast.killed_melee"))
                         ));
             }
         } catch (Exception ex) {

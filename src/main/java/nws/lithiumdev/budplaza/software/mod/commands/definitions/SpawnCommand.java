@@ -6,7 +6,6 @@ package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 import dev.jorel.commandapi.CommandAPICommand;
 import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import nws.lithiumdev.budplaza.software.mod.Globals;
-import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 
 public class SpawnCommand implements ICommand {
     @Override
@@ -17,8 +16,8 @@ public class SpawnCommand implements ICommand {
                     sender.playSound(Globals.SOUND_EXP_PICKUP);
                 })
                 .withPermission("budplaza.commands.spawn")
-                .withHelp(Messages.Get("commands.spawn.help_short"),
-                        Messages.Get("commands.spawn.help_long"))
+                .withHelp(Messages.get("commands.spawn.help_short"),
+                        Messages.get("commands.spawn.help_long"))
                 .register();
     }
 }

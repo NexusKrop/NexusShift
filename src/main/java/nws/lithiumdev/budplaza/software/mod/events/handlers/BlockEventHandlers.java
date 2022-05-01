@@ -30,7 +30,7 @@ public class BlockEventHandlers implements Listener {
             ProjectileSource projectileOwner = event.getEntity().getShooter();
             if (projectileOwner instanceof Player p) {
                 PlayerUtil.blipPlayer(p);
-                p.sendActionBar(MiniMessage.miniMessage().deserialize(Messages.Get("ui.target_block_indicator"),
+                p.sendActionBar(MiniMessage.miniMessage().deserialize(Messages.get("ui.target_block_indicator"),
                         Placeholder.unparsed("strength", Integer.toString(event.getSignalStrength())),
                         Placeholder.unparsed("max", "15")));
             }

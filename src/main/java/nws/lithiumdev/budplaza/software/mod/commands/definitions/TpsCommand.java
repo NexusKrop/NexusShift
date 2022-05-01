@@ -5,7 +5,6 @@ package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
 import dev.jorel.commandapi.CommandAPICommand;
 import io.gitlab.budplaza.calamity.plugin.config.Messages;
-import nws.lithiumdev.budplaza.software.mod.util.ConfigUtil;
 import org.bukkit.Bukkit;
 
 import java.util.Arrays;
@@ -15,8 +14,8 @@ public class TpsCommand implements ICommand {
     public void register() {
         new CommandAPICommand("tps")
                 .withPermission("budplaza.commands.tps")
-                .withHelp(Messages.Get("commands.tps.help_short"),
-                        Messages.Get("commands.tps.help_long"))
+                .withHelp(Messages.get("commands.tps.help_short"),
+                        Messages.get("commands.tps.help_long"))
                 .executes((sender, args) -> {
                     var tps = Bukkit.getServer().getTPS();
                     sender.sendMessage("TPS-es: " + Arrays.toString(tps));
