@@ -9,6 +9,7 @@ import dev.jorel.commandapi.CommandAPICommand;
 import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import nws.lithiumdev.budplaza.software.mod.commands.definitions.ICommand;
 import org.bukkit.Location;
 
@@ -19,7 +20,7 @@ import java.util.Random;
  */
 public class RtpCommand implements ICommand {
     private static final Random random = new Random();
-    private static final String IN_VEHICLE = "commands.rtp.in_vehicle";
+    private final Component leaveVehicleWarning = Messages.getParsed("commands.rtp.in_vehicle");
 
     @Override
     public void register() {
@@ -29,7 +30,7 @@ public class RtpCommand implements ICommand {
                 .executesEntity(((sender, args) -> {
                     if (sender.isInsideVehicle()) {
                         // 执行失败
-                        sender.sendMessage(Component.text(Messages.get(IN_VEHICLE)).color(NamedTextColor.RED));
+                        sender.sendMessage(leaveVehicleWarning);
                         return -1;
                     }
 

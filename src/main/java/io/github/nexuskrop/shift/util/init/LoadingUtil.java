@@ -46,6 +46,7 @@ public final class LoadingUtil {
         Messages.addDefault("commands.version.license", "Licensed Under: ");
         Messages.addDefault("commands.version.sources.prefix", "Get Sources: ");
         Messages.addDefault("commands.setspawn.success", "<green>Successfully set world spawn.</green>");
+        Messages.addDefault("commands.rtp.in_vehicle", "<red>Leave your vehicle.</red>");
 
         // 帮助信息
         Messages.addDefault("commands.bed.help_short", "Gets or sets the location of your own respawn point.");
@@ -60,7 +61,6 @@ public final class LoadingUtil {
         Messages.addDefault("commands.tps.help_short", "Displays the TPS.");
         Messages.addDefault("commands.tps.help_long", "Displays three recent Ticks Per Second sample in the order of 1min, 5min and 15min.");
 
-        Messages.addDefault("commands.rtp.in_vehicle", "请先离开载具。");
         Messages.addDefault("ui.hit_indicator", "<green><health></green>/<red><maxHealth></red> HP [<gold>-<damage><gray>]");
         Messages.addDefault("ui.death_indicator", "Target <gray><target></gray> [<red>DEAD</red>]");
         Messages.addDefault("ui.death_broadcast", "<red><prep></red> <gray><means></gray> <green><victim></green>");
