@@ -14,7 +14,7 @@ If you plan to report issue, follow the guideline here.
 ### Bugs
 
 Please make sure you can reproduce with the latest revision found in the `main`
-branch. If you are not using the latest revision, please [build again from source](../README.md#building-from-source), using
+branch. If you are not using the latest revision, please [build again from source](README.md#building-from-source), using
 the latest revision, and verify it.
 
 If we cannot reproduce your issue with the latest revision, or it's already fixed, your issue will be closed

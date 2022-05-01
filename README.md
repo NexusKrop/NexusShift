@@ -27,7 +27,7 @@ commands of this plugin.
 
 ## Contributing
 
-See our [contributing guidelines](docs/CONTRIBUTING.md).
+See our [contributing guidelines](CONTRIBUTING.md).
 
 ## License
 
