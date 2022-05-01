@@ -39,7 +39,7 @@ public final class LoadingUtil {
         Messages.addDefault("commands.perf.no_such_perf", "No such preference.");
         Messages.addDefault("commands.perf.no_such_perf", "Preference '{pref}' was set to '{value}'.");
         Messages.addDefault("commands.generic.requires_player", "You are '%s' but the command can only be executed by player.");
-        Messages.addDefault("commands.home.no_home", "You have no home set. Use '/sethome' to set your home.");
+        Messages.addDefault("commands.home.no_home", "<red>You have no home set. Use '/sethome' to set your home point.</red>");
         Messages.addDefault("commands.bed.no_bed", "You have no personal spawn point, or it was blocked.");
         Messages.addDefault("commands.bed.stuck", "You are stuck in a block. Get out and try again.");
         Messages.addDefault("commands.tps.result", "TPS is %i");

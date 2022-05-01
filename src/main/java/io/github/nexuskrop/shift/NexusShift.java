@@ -6,6 +6,7 @@
 package io.github.nexuskrop.shift;
 
 import io.github.nexuskrop.shift.util.init.LoadingUtil;
+import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import nws.lithiumdev.budplaza.software.mod.Globals;
 import nws.lithiumdev.budplaza.software.mod.commands.CommandManager;
 import nws.lithiumdev.budplaza.software.mod.events.EventHandlerManager;
@@ -37,11 +38,15 @@ public final class NexusShift extends JavaPlugin {
     public void onEnable() {
         LOG.info("Enabled plugin");
 
+        // Load config
         Globals.initFileConfiguration(this.getConfig());
         this.saveConfig();
 
+        // Initialize messages support
         LoadingUtil.addDefaultMessages();
+        Messages.loadMessages(this.getDataFolder());
 
+        // Register commands and events
         CommandManager.registerAll();
         EventHandlerManager.registerHandlers(this);
     }
