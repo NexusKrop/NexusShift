@@ -4,8 +4,7 @@
 package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
 import dev.jorel.commandapi.CommandAPICommand;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
+import io.gitlab.budplaza.calamity.plugin.config.Messages;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,12 +18,7 @@ public class SetSpawnCommand implements ICommand {
                     var loc = sender.getLocation();
 
                    sender.getWorld().setSpawnLocation(loc);
-                   sender.sendMessage(Component.translatable("commands.setworldspawn.success").args(
-                           Component.text(loc.getBlockX()),
-                           Component.text(loc.getBlockY()),
-                           Component.text(loc.getBlockZ()),
-                           Component.text(loc.getYaw())
-                   ).color(NamedTextColor.GOLD));
+                   sender.sendMessage(Messages.getParsed("commands.setspawn.success"));
                    logger.info(String.format("%s set spawn of %s to %s, %s, %s [%s]", sender.getName(), sender.getWorld().getName(), loc.getBlockX(), loc.getBlockY(),
                            loc.getBlockZ(), loc.getYaw()));
                 })
