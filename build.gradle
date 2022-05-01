@@ -11,7 +11,7 @@ tasks.withType(JavaCompile) {
 }
 
 group = 'nws.lithiumdev.budplaza'
-version = 'mc1.18.1-rev1-pre'
+version = 'mc1.18.2-rev2'
 
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
