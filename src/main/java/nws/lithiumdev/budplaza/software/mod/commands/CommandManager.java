@@ -3,8 +3,7 @@
 
 package nws.lithiumdev.budplaza.software.mod.commands;
 
-import io.github.nexuskrop.shift.commands.BedCommandV2;
-import io.github.nexuskrop.shift.commands.RtpCommand;
+import io.github.nexuskrop.shift.commands.*;
 import nws.lithiumdev.budplaza.software.mod.commands.definitions.*;
 
 public final class CommandManager {
@@ -16,7 +15,7 @@ public final class CommandManager {
             new SetSpawnCommand(),
             new FireballCommand(),
             new SpawnCommand(),
-            new BlipCommandA(),
+            new BlipCommandV2(),
             new VersionCommandA(),
             new TpsCommand(),
             // Calamity

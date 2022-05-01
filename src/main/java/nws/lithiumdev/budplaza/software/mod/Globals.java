@@ -8,14 +8,8 @@ import net.kyori.adventure.key.Key;
 import net.kyori.adventure.sound.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import java.text.DecimalFormat;
-
 public final class Globals {
     private Globals() {}
-
-    public static final String SOURCES_REPO = "https://gitlab.com/budplaza/budplaza-software-paper/";
-
-    public static final Sound SOUND_EXP_PICKUP = Sound.sound(Key.key("entity.experience_orb.pickup"), Sound.Source.PLAYER, 1f, 1f);
 
     public static void reloadConfig() {
         configuration = NexusShift.getInstance().getConfig();
