@@ -15,6 +15,7 @@ public final class LoadingUtil {
     public static void addDefaultMessages() {
         // Bed Command
         Messages.AddDefault("commands.bed.invalid_here", "<red>Your position cannot be set as your personal spawn point.</red>");
+        Messages.AddDefault("ui.copyright", "This plugin is licensed under <a:https://github.com/NexusKrop/NexusShift/blob/main/LICENSE>GNU AGPLv3 or later</a>.<br>- <b>Source Code</b>: <a:https://github.com/NexusKrop/NexusShift>https://github.com/NexusKrop/NexusShift/blob/main/LICENSE</a><br>- <b>Developer</b>: WithLithum");
 
         Messages.AddDefault("ui.target.block", "Target");
         Messages.AddDefault("generic.hp", "HP");
