@@ -5,11 +5,12 @@ package nws.lithiumdev.budplaza.software.mod.commands.definitions;
 
 import dev.jorel.commandapi.CommandAPICommand;
 import io.gitlab.budplaza.calamity.plugin.config.Messages;
+import net.kyori.adventure.text.Component;
 import nws.lithiumdev.budplaza.software.mod.util.CommandUtil;
 import nws.lithiumdev.budplaza.software.players.PlayerUtil;
 
 public class HomeCommand implements ICommand {
-    private static final String NO_HOME = "commands.home.no_home";
+    private final Component noHomeMessage = Messages.getParsed("commands.home.no_home");
 
     @Override
     public void register() {
@@ -18,7 +19,7 @@ public class HomeCommand implements ICommand {
                     var home = PlayerUtil.getHome(sender);
 
                     if (home == null) {
-                        CommandUtil.feedbackFault(sender, Messages.get(NO_HOME));
+                        sender.sendMessage(noHomeMessage);
                     }
                 })
                 .withPermission("budplaza.commands.home")
