@@ -4,6 +4,7 @@
 package nws.lithiumdev.budplaza.software.mod.commands;
 
 import io.github.nexuskrop.shift.commands.*;
+import io.github.nexuskrop.shift.commands.engine.CommandEngine;
 import io.github.nexuskrop.shift.commands.engine.INativeCommand;
 import io.github.nexuskrop.shift.util.Common;
 import nws.lithiumdev.budplaza.software.mod.commands.definitions.*;
@@ -36,7 +37,7 @@ public final class CommandManager {
             command.register();
         }
 
-        var dispatcher = Common.getVanillaServer().vanillaCommandDispatcher.getDispatcher();
+        var dispatcher = CommandEngine.getDispatcher();
 
         for (var nativeCmd: nativeCommands) {
             nativeCmd.register(dispatcher);
