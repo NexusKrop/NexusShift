@@ -44,7 +44,7 @@ public final class LoadingUtil {
         Messages.addDefault("commands.home.no_home", "<red>You have no home set. Use '/sethome' to set your home point.</red>");
         Messages.addDefault("commands.bed.no_bed", "You have no personal spawn point, or it was blocked.");
         Messages.addDefault("commands.bed.stuck", "You are stuck in a block. Get out and try again.");
-        Messages.addDefault("commands.tps.result", "TPS is %i");
+        Messages.addDefault("commands.tps.prefix", "TPS is");
         Messages.addDefault("commands.version.license", "Licensed Under: ");
         Messages.addDefault("commands.version.sources.prefix", "Get Sources: ");
         Messages.addDefault("commands.setspawn.success", "<green>Successfully set world spawn.</green>");

@@ -19,13 +19,13 @@ public final class CommandManager {
             new FireballCommand(),
             new SpawnCommand(),
             new BlipCommandV2(),
-            new VersionCommandA(),
-            new TpsCommand()
+            new VersionCommandA()
     };
 
     private static final INativeCommand[] nativeCommands = {
             new RespawnCommand(),
-            new RtpCommand()
+            new RtpCommand(),
+            new TpsCommandV2()
     };
 
     /**
