@@ -1,4 +1,4 @@
-# PaperWare
+# NexusShift
 
 NexusShift is the Paper plugin tailored for our own use.
 
@@ -24,6 +24,8 @@ compared to cloning the whole history.
 
 You can use the built-in Minecraft command helper to learn the syntax of the
 commands of this plugin.
+
+Beware, all commands are currently being rewritten to use NMS because we can't get the dependency to work right.
 
 ## Contributing
 

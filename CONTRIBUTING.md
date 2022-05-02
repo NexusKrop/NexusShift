@@ -1,7 +1,7 @@
 # Contributing Guidelines
 
 First, thank you for interesting to contribute to this project. As of
-2022/01/25, there is only one person working on this project.
+2022/05/02, there is only one person working on this project.
 
 If you are previously a player from GreenCreative, EnderShop or RelaperStack,
 thanks for coming back. If you found a feature that has no replacements in the
@@ -15,13 +15,13 @@ If you plan to report issue, follow the guideline here.
 
 Please make sure you can reproduce with the latest revision found in the `main`
 branch. If you are not using the latest revision, please [build again from source](README.md#building-from-source), using
-the latest revision, and verify it.
+the latest revision, and check if the issue has been resolved.
 
 If we cannot reproduce your issue with the latest revision, or it's already fixed, your issue will be closed
-and labelled as `state::invalid`.
+and labelled as `status: invalid`.
 
 If you report the bug for your own contribution **make sure** the issue you
-reported has been marked as `state::ready` before creating the Merge Request.
+reported has been marked as `status: open` before creating the Merge Request.
 
 ### Feature requests
 
@@ -59,7 +59,7 @@ You'll need these:
   - Must be PaperMC; Spigot simply don't work here
   - Windows or GNU/Linux (Mac, especially M1, and non-GNU Linux distributions or Linux/libre are not supported)
   - CommandAPI (latest)
-- Minecraft: Java Edition
+- Minecraft: Java Edition (NetEase ones simply do not work)
 
 #### Installing instructions
 
@@ -75,8 +75,16 @@ We recommend you just fork the project and contribute back to upstream (us).
 
 If you felt your fork ready to merge, create a Merge Request.
 
-### Merge Requests
+### Pull Requests
 
-You should submit any contributions as a Merge Request if you are not a DevFish.
+You should submit any contributions via pull requests if you are not a NexusKrop member.
 
 For major changes and bugfixes we require you to create an issue before creating a Merge Request.
+
+## Current priorities
+
+We do have some current priorities needs to be done first.
+
+- (#2) Commands all break
+
+If you can help, please do not hesitate to help.
