@@ -1,0 +1,22 @@
+{
+  "commands.rtp.success": "Random teleportation success",
+  "generic.hp": "HP",
+  "generic.target": "Target",
+  "ui.welcome": "<green>Welcome!",
+  "ui.parsable.hit_indicator": "<green><health></green>/<red><maxHealth></red> HP [<gold>-<damage><gray>]",
+  "ui.parsable.kill_indicator": "Target <gray><target></gray> [<red>DEAD</red>]",
+  "ui.parsable.death_message": "<red><prep></red> <gray><means></gray> <green><victim></green>",
+  "ui.parsable.death_message_accident": "<green><victim></green> was <gray><italic><means>",
+  "ui.parsable.target_indicator": "<gold>Target</gold>: <aqua><strength></aqua>/<green><max></green>",
+  "ui.reason.killed_generic": "killed",
+  "ui.reason.shot_and_killed": "shot and killed",
+  "ui.reason.fell": "felled to death",
+  "ui.reason.burnt": "burnt to death",
+  "commands.generic.no_permission": "<red>You do not have permission to run this command",
+  "commands.generic.unknown_failure": "<red>Unknown error whilst executing command",
+  "commands.reload.start": "Reloading. May take some time...",
+  "commands.reload.success": "Reload complete.",
+  "commands.blip.success": "<gray><italic>You requests <reset><victim><gray><italic>'s attention.",
+  "commands.blip.victim": "<from><gray><italic> wants your attention.",
+  "commands.tps.result": "TPS: <tps>"
+}
