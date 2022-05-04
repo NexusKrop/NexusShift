@@ -14,7 +14,7 @@ Most of the commands back then was implemented in this plugin but not all of the
 
 This plugin is designed to be used in combination of 'LuckPerms' and 'CoreProtect', although did not use their API directly.
 
-It's merely here for customization features and some anti-griefing stuff that we used in the old days for EnderShop, Green Creative & Relaper Stack stuff.
+It's merely here for customisation features and some anti-griefing stuff that we used in the old days for EnderShop, Green Creative & Relaper Stack stuff.
 
 It also contains some idea from other services back then such as 'SMCCM51', but since that was not developed since, no more idea was added to this plugin from that.
 
