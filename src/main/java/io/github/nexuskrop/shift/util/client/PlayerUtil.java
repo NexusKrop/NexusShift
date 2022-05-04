@@ -10,6 +10,7 @@ import io.github.nexuskrop.shift.ui.Messages;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder;
+import net.minecraft.sounds.SoundEvents;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
@@ -43,6 +44,15 @@ public final class PlayerUtil {
      */
     public static void blipPlayer(@NotNull Player player) {
         Objects.requireNonNull(player).playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
+    }
+
+    /**
+     * Plays a sound effect to the specified player.
+     * @param player The player to blip.
+     * @throws NullPointerException Thrown when player is null.
+     */
+    public static void blipPlayer(@NotNull net.minecraft.world.entity.player.Player player) {
+        Objects.requireNonNull(player).playSound(SoundEvents.EXPERIENCE_ORB_PICKUP, 1f, 1f);
     }
 
     /**
