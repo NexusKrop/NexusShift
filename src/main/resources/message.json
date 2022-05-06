@@ -1,0 +1,7 @@
+{
+  "commands.generic.no_such_player": "No such player",
+  "commands.generic.too_few_arguments": "Too few arguments",
+  "commands.generic.too_many_arguments": "Too many arguments",
+  "commands.blip.victim": "<source> <gray><italic>wants your attention.",
+  "commands.blip.success": "<gray><italic>You attempts to acquire <victim> <gray><italic>'s attention."
+}

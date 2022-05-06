@@ -7,3 +7,10 @@ author: NexusKrop
 api-version: 1.18
 
 website: "https://github.com/NexusKrop/NexusShift"
+
+commands:
+  blip:
+    description: "Attempts to grab someone's attention."
+    aliases:
+      - at
+    usage: /<command> <player>
